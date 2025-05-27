@@ -23,3 +23,35 @@ _JavaScript supports multiple programming paradigms, including **object-oriented
 
 _JS code runs inside an environment called the **JavaScript engine**, which is most commonly found in web browsers (these engines read and execute the code, enabling web pages to respond to user actions in real time). Beyond browsers, JS can also run on servers, desktops and even small devices thanks to platforms like Node.js. This versatility allows developers to use the same language to build a wide range of applications._
 
+## _Syntax information_
+
+_Although it is not mandatory to end statements with a semicolon, it is good practice to always include closing punctuation._
+
+_JavaScript is **case sensitive**, which means it distinguishes between uppercase and lowercase._
+
+_Like any language, JavaScript provides character sequences to insert **comments** into the code. Anything marked as a comment is ignored by the JavaScript interpreter. We can insert two types of comments into the code :_ 
+
+* _```single-line comment``` : begins with the characters ```//```_
+* _```multi-line comment``` : starts with the sequence ```/*``` and ends with ```*/```_
+
+_Whitespace in JS has no special meaning in expressions and we can use it to improve the **readability** of our code._
+
+## _Data Types_
+
+_Data types define the kind of value a variable can hold. JavaScript is a dynamically typed language, meaning you don't need to declare the type of a variable (it is determined automatically at runtime)._\
+_Despite being flexible, JS still enforces rules based on the type of the data we are working with (these rules affect how values behave, how operations are performed and how values are compared)._
+
+_JavaScript data types are divided into two main categories :_
+
+* #### _Primitive Types :_
+  _Basic, immutable values (once a primitive value is created, it cannot be altered; however, the variable holding it can be reassigned to a new value). These values are stored directly in memory and compared by value, not by reference._
+  
+  _- ```string```: a sequence of characters._\
+  _- ```number```: includes both whole numbers and decimals._\
+  _- ```bigint```: used for very large integers, beyond the number limit._\
+  _- ```boolean```: True or False values._\
+  _- ```undefined```: a variable that has been declared but not given a value._\
+  _- ```null```: rapresents an intentional empty value._\
+  _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
+* #### _Non-Primitive Types (Objects) :_
+  _Complex types like arrays, functions and objects (mutable and stored by reference)._
