@@ -38,20 +38,24 @@ _Whitespace in JS has no special meaning in expressions and we can use it to imp
 
 ## _Data Types_
 
-_Data types define the kind of value a variable can hold. JavaScript is a dynamically typed language, meaning you don't need to declare the type of a variable (it is determined automatically at runtime)._\
+_Data types define the kind of value a variable can hold. JavaScript is a **dynamically typed language**, meaning you don't need to declare the type of a variable (it is determined automatically at runtime)._\
 _Despite being flexible, JS still enforces rules based on the type of the data we are working with (these rules affect how values behave, how operations are performed and how values are compared)._
 
 _JavaScript data types are divided into two main categories :_
 
 * #### _Primitive Types :_
-  _Basic, immutable values (once a primitive value is created, it cannot be altered; however, the variable holding it can be reassigned to a new value). These values are stored directly in memory and compared by value, not by reference._
+  _**Basic**, **immutable** values (once a primitive value is created, it cannot be altered; however, the variable holding it can be reassigned to a new value). These values are stored directly in memory and **compared by value**, not by reference._
   
-  _- ```string```: a sequence of characters._\
-  _- ```number```: includes both whole numbers and decimals._\
-  _- ```bigint```: used for very large integers, beyond the number limit._\
-  _- ```boolean```: True or False values._\
+  _- ```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
+  
+  _- ```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
+  
+  _Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value._
+  
+  _- ```bigint```: used for very **large integers**, beyond the number limit._\
+  _- ```boolean```: **True** or **False** values._\
   _- ```undefined```: a variable that has been declared but not given a value._\
-  _- ```null```: rapresents an intentional empty value._\
+  _- ```null```: rapresents an intentional **empty value**._\
   _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
 * #### _Non-Primitive Types (Objects) :_
-  _Complex types like arrays, functions and objects (mutable and stored by reference)._
+  _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
