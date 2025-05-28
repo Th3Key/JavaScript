@@ -59,3 +59,30 @@ _JavaScript data types are divided into two main categories :_
   _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
 * #### _Non-Primitive Types (Objects) :_
   _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
+
+## _Variables_
+
+_A variable is a container that holds a value. There are three main ways to declare variables in JS :_
+
+* _```let```: for variables that can change. It is **block-scoped** (exists only inside the {} block where they are defined)._
+* _```const```: for variables that must not change. It is **block-scoped**._
+* _```var```: the old way (avoid using it). It is **function-scoped** (exists in the whole function)._
+
+_Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
+
+## _Operators and Expressions_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
