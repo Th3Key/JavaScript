@@ -161,7 +161,7 @@ _To **access** and **modify** array elements we use its **zero-based index** : `
 _```const colors = ["red", "green", "blue"];```_\
 _```console.log(colors[0]);``` output : "red"_\
 _```colors[0] = "black";```_\
-_```console.log(colors[0]);``` output : "black"_\
+_```console.log(colors[0]);``` output : "black"_
 
 _<sub>Accessing an index outside the array bounds returns **undefined**.<sub>_\
 _<sub>Assigning a value to an index beyond the current length increases the array size, filling missing elements with **undefined**.<sub>_
