@@ -70,10 +70,76 @@ _A variable is a container that holds a value. There are three main ways to decl
 
 _Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
 
+## _Type Conversion_
+
+_JavaScript supports :_ 
+
+* _**Implicit Conversion** : JS automatically converts types when needed (it is not always safe)._
+* _**Explicit Conversion** (Manual) :_
+
+  - _Convert to **String** :_
+
+    + _```String(value)```_
+    + _```value.toString()```_
+      
+  - _Convert to **Number** :_
+  
+    + _```Number(value)```_
+    + _```parseInt(value)``` or ```parseFloat(value)```_
+    
+    _<sub>It stops at the first invalid character, for example if we have ```value = "123abc"``` the result of ```parseInt(value)``` would be ```123```.<sub>_
+    
+    + _Unary Plus Operator : ```+value```_
+    
+    _<sub>Converts the operand to a number exactly like ```Number(value)```, if the value can't be converted to a valid number it returns **NaN**.<sub>_
+  
+  - _Convert to **Boolean** : ```Boolean(value)```_
+
 ## _Operators and Expressions_
 
+_An expression is any code that produces a value._
 
+_Operators perform actions on values (operands). They are grouped into categories :_
 
+* #### _Arithmetic Operators (used for basic math) :_
+  - _**Addition** : ```+```_
+  - _**Subtraction** : ```-```_
+  - _**Multiplication** : ```*```_
+  - _**Division** : ```/```_
+  - _**Modulus** (remainder) : ```%```_
+  - _**Exponentiation** : ```**```_
+  - _**Increment** : ```++```_
+  - _**Decrement** : ```--```_
+
+  _<sub>The increment and decrement operators can be used in two forms : **prefix** (```++x``` in this case the variable is updated first, then used) and **postfix** (```x++``` the variable is used first, then updated).<sub>_
+
+* #### _Assignment Operators (used to assign or update values in variables) :_
+  - _**Assign** : ```=```_
+  - _**Add and Assign** : ```+=```_
+  - _**Subtract and Assign** : ```-=```_
+  - _**Multiply and Assign** : ```*=```_
+  - _**Divide and Assign** : ```/=```_
+  - _**Assign the remainder** : ```%=```_
+  - _**Assign the exponential** : ```**=```_
+* #### _Comparison Operators (used to compare two values, returns true or false) :_
+  - _**Equal** : ```==```_
+  - _**Equal** (strict : compares both value and type) : ```===```_
+  - _**Not Equal** : ```!=```_
+  - _**Not Equal** (strict) : ```!==```_
+  - _**Greater than** : ```>```_
+  - _**Less than** : ```<```_
+  - _**Greater than or Equal** : ```>=```_
+  - _**Less than or Equal** : ```<=```_
+* #### _Logical Operators (used with boolean values) :_
+  - _**AND** : ```&&```_
+  - _**OR** : ```||```_
+  - _**NOT** : ```!```_
+* #### _String Operator (used to join strings - concatenation) : ```+```_
+* #### _Type Operators :_
+   - _```typeof``` : returns type of value_
+   - _```instanceof``` : checks if value is an instance of a class_
+
+## _Arrays_
 
 
 
