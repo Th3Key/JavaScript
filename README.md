@@ -141,13 +141,40 @@ _Operators perform actions on values (operands). They are grouped into categorie
 
 ## _Arrays_
 
+_An **array** is a special variable that can hold multiple values in an **ordered collection**, where each value, called an **element**, is accessed by a **zero-based index** (starting at 0). Arrays can contain **heterogeneous data types** (elements within the same array can be numbers, strings, objects, or even other arrays) and can **dynamically grow or shrink in size**._
 
+_To create arrays in JavaScript there are two main ways :_ 
 
+* #### _Array Literal :_
 
+  - _```const numbers = [10, 20, 30]```_
+  - _```const fruits = ["apple", "peach", "orange"]```_
+  - _```const mixed = [1, "hi", true]```_
 
+* #### _Array Constructor :_
 
+  - _```const arr1 = new Array(3)``` : creates an empty array of length 3._
+  - _```const arr2 = new Array(1, 2, 3)``` : creates ```[1, 2, 3]``` cause when the array constructor is used with multiple arguments each argument becomes an element in the new array._
+ 
+_To **access** and **modify** array elements we use its **zero-based index** : ```array[index]```._
 
+_```const colors = ["red", "green", "blue"];```_\
+_```console.log(colors[0]);``` output : "red"_\
+_```colors[0] = "black";```_\
+_```console.log(colors[0]);``` output : "black"_\
 
+_<sub>Accessing an index outside the array bounds returns **undefined**.<sub>_\
+_<sub>Assigning a value to an index beyond the current length increases the array size, filling missing elements with **undefined**.<sub>_
+
+## _Control Flow_
+
+_Control Flow determines the order in which the code executes. JavaScript provides several structures to control this flow, allowing programs to **make decisions** and **repeat tasks** efficiently._
+
+#### _Code Blocks_
+
+_A code block is a group of one or more statements enclosed within curly braces ```{ }```. It allows multiple statements to be treated as a single unit, meaning all the code inside the braces is executed together as a block. Code blocks help **organize** code logically and improve **readability** and **maintainability** by clearly grouping related instructions._
+
+#### _Conditional Statements_
 
 
 
