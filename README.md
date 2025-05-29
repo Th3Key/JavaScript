@@ -43,21 +43,23 @@ _Despite being flexible, JS still enforces rules based on the type of the data w
 
 _JavaScript data types are divided into two main categories :_
 
-* #### _Primitive Types :_
+* _**Primitive Types** :_
+  
   _**Basic**, **immutable** values (once a primitive value is created, it cannot be altered; however, the variable holding it can be reassigned to a new value). These values are stored directly in memory and **compared by value**, not by reference._
   
-  _- ```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
+    _- ```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
   
-  _- ```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
+    _- ```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
   
-  _Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value._
+  _<sub>Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value.<sub>_
   
   _- ```bigint```: used for very **large integers**, beyond the number limit._\
   _- ```boolean```: **True** or **False** values._\
   _- ```undefined```: a variable that has been declared but not given a value._\
   _- ```null```: rapresents an intentional **empty value**._\
   _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
-* #### _Non-Primitive Types (Objects) :_
+* _**Non-Primitive Types** (Objects) :_
+  
   _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
 
 ## _Variables_
@@ -101,7 +103,8 @@ _An expression is any code that produces a value._
 
 _Operators perform actions on values (operands). They are grouped into categories :_
 
-* #### _Arithmetic Operators (used for basic math) :_
+* _**Arithmetic Operators** (used for basic math) :_
+
   - _**Addition** : ```+```_
   - _**Subtraction** : ```-```_
   - _**Multiplication** : ```*```_
@@ -113,7 +116,8 @@ _Operators perform actions on values (operands). They are grouped into categorie
 
   _<sub>The increment and decrement operators can be used in two forms : **prefix** (```++x``` in this case the variable is updated first, then used) and **postfix** (```x++``` the variable is used first, then updated).<sub>_
 
-* #### _Assignment Operators (used to assign or update values in variables) :_
+* _**Assignment Operators** (used to assign or update values in variables) :_
+
   - _**Assign** : ```=```_
   - _**Add and Assign** : ```+=```_
   - _**Subtract and Assign** : ```-=```_
@@ -121,7 +125,9 @@ _Operators perform actions on values (operands). They are grouped into categorie
   - _**Divide and Assign** : ```/=```_
   - _**Assign the remainder** : ```%=```_
   - _**Assign the exponential** : ```**=```_
-* #### _Comparison Operators (used to compare two values, returns true or false) :_
+  
+* _**Comparison Operators** (used to compare two values, returns true or false) :_
+
   - _**Equal** : ```==```_
   - _**Equal** (strict : compares both value and type) : ```===```_
   - _**Not Equal** : ```!=```_
@@ -130,12 +136,16 @@ _Operators perform actions on values (operands). They are grouped into categorie
   - _**Less than** : ```<```_
   - _**Greater than or Equal** : ```>=```_
   - _**Less than or Equal** : ```<=```_
-* #### _Logical Operators (used with boolean values) :_
+  
+* _**Logical Operators** (used with boolean values) :_
+  
   - _**AND** : ```&&```_
   - _**OR** : ```||```_
   - _**NOT** : ```!```_
-* #### _String Operator (used to join strings - concatenation) : ```+```_
-* #### _Type Operators :_
+  
+* _**String Operator** (used to join strings - concatenation) : ```+```_
+  
+* _**Type Operators** :_
    - _```typeof``` : returns type of value_
    - _```instanceof``` : checks if value is an instance of a class_
 
@@ -145,13 +155,13 @@ _An **array** is a special variable that can hold multiple values in an **ordere
 
 _To create arrays in JavaScript there are two main ways :_ 
 
-* #### _Array Literal :_
+* _**Array Literal** :_
 
   - _```const numbers = [10, 20, 30]```_
   - _```const fruits = ["apple", "peach", "orange"]```_
   - _```const mixed = [1, "hi", true]```_
 
-* #### _Array Constructor :_
+* _**Array Constructor** :_
 
   - _```const arr1 = new Array(3)``` : creates an empty array of length 3._
   - _```const arr2 = new Array(1, 2, 3)``` : creates ```[1, 2, 3]``` cause when the array constructor is used with multiple arguments each argument becomes an element in the new array._
