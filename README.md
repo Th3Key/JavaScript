@@ -180,12 +180,81 @@ _<sub>Assigning a value to an index beyond the current length increases the arra
 
 _Control Flow determines the order in which the code executes. JavaScript provides several structures to control this flow, allowing programs to **make decisions** and **repeat tasks** efficiently._
 
-#### _Code Blocks_
+### _Code Blocks_
 
-_A code block is a group of one or more statements enclosed within curly braces ```{ }```. It allows multiple statements to be treated as a single unit, meaning all the code inside the braces is executed together as a block. Code blocks help **organize** code logically and improve **readability** and **maintainability** by clearly grouping related instructions._
+_A code block is a group of one or more statements enclosed within curly braces ```{ }```. It allows multiple statements to be treated as a single unit, meaning all the code inside the braces is executed together as a block. Those blocks help **organize** code logically and improve **readability** and **maintainability** by clearly grouping related instructions._
 
-#### _Conditional Statements_
+### _Conditional Statements_
 
+_They allow a program to make decisions and execute certain blocks of code based on specific conditions. JavaScript provides several forms to implement **decision-making** logic :_
 
+* _**if** : executes a block of code if a specified condition evaluates to ```true```._
 
+  ```let x = 15;```\
+  ```if (x > 10){```\
+  ```  console.log("true");```\
+  ```}```
+  
+* _**if...else** : provides an alternative block of code to execute when the condition is ```false```._
 
+  _```let x = 15;```_\
+  _```if (x > 10){```_\
+  _```  console.log("true");```_\
+  _```} else {```_\
+  _```  console.log("false");```_\
+  _```}```_
+
+* _**Ternary Operator** : a compact syntax for simple **if...else** conditions._
+
+  _```condition ? expressionIfTrue : expressionIfFalse;```_
+
+  _```let x = 15;```_\
+  _```let check = x > 15 ? true : false;```_
+  
+* _**else if** : checks multiple conditions in sequence, the first that evaluates to ```true``` is executed._
+
+  _```let x = 15;```_\
+  _```if (x > 30){```_\
+  _```  console.log("option 1");```_\
+  _```} else if (x > 20) {```_\
+  _```  console.log("option 2");```_\
+  _```} else if (x > 10) {```_\
+  _```  console.log("option 3");```_\
+  _```} else {```_\
+  _```  console.log("option 4");```_\
+  _```}```_
+
+* _**switch** : is used to perform different actions b ased on the value of a variable or expression. It's often used as a cleaner alternative to multiple **if...else if** conditions, especially when checking the same variable against many different values._
+
+  _```switch (expression) {```_\
+  _```  case value1:```_\
+    _```    // Code to run if expression === value1```_\
+    _```    break;```_\
+  _```  case value2:```_\
+    _```    // Code to run if expression === value2```_\
+    _```    break;```_\
+  _```  default:```_\
+    _```    // Code to run if none of the above cases match```_\
+  _```}```_
+
+_<sub>The break statement stops the switch from continuing to the next case<sub>_
+
+_<sub>The default case is optional and runs only if no other case matches<sub>_
+
+### _Loops_
+
+_Loops execute a block of code multiple times, based on a fixed number of iterations or while a specified condition remains true. This mechanism automates repetitive tasks and reduces code duplication._
+
+* _**for** : repeats code a predeterminated number of times, it consists of three parts within parentheses : **initialization**, **condition** and **increment**._
+
+  _```for (let i = 0; i < 5; i++) {```_\
+  _```  console.log("iteraion number :", i);```_\
+  _```}```_
+
+_<sub>**Initialization** : sets the starting value (let i = 0)<sub>_\
+_<sub>**Condition** : checks whether the loop should continue (i < 5)<sub>_\
+_<sub>**Increment** : updates the counter after each iteration (i++)<sub>_
+
+* _**while** : continues executing as long as its condition evaluates to ```true```. The condition is checked before each iteration._
+* _**do...while** :_
+* 
