@@ -256,5 +256,28 @@ _<sub>**Condition** : checks whether the loop should continue (i < 5)<sub>_\
 _<sub>**Increment** : updates the counter after each iteration (i++)<sub>_
 
 * _**while** : continues executing as long as its condition evaluates to ```true```. The condition is checked before each iteration._
-* _**do...while** :_
-* 
+
+  _```let count = 0;```_\
+  _```while (count < 5) {```_\
+  _```  console.log("count is:", count);```_\
+  _```  count++;```_\
+  _```}```_
+
+_<sub>To prevent an infinite loop, it is necessary to modify the variable involved in the condition within the loop body.<sub>_
+
+* _**do...while** : ensures that the code block runs at least once, as the condition is evaluated only after the initial execution._
+
+  _```let number = 0;```_\
+  _```do {```_\
+  _```  console.log("Number is:", number);```_\
+  _```  number++;```_\
+  _```} while (number < 3);```_
+
+* _**for...of** : is used to iterate over **iterable objects**, such as arrays, strings and more. It retrieves the values of the iterable one by one._
+
+  ```for (const element of iterable) {```\
+  ```  //code block using element```\
+  ```}```
+
+_<sub>**iterable** refers to any object that implements the iterable protocol (arrays, strings..).<sub>_\
+_<sub>**element** represents the current value being accessed in each iteration.<sub>_
