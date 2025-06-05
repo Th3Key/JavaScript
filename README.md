@@ -237,9 +237,8 @@ _They allow a program to make decisions and execute certain blocks of code based
     _```    // Code to run if none of the above cases match```_\
   _```}```_
 
-_<sub>The break statement stops the switch from continuing to the next case<sub>_
-
-_<sub>The default case is optional and runs only if no other case matches<sub>_
+  _<sub>The **break** statement stops the switch from continuing to the next case<sub>_\
+  _<sub>The **default** case is optional and runs only if no other case matches<sub>_
 
 ### _Loops_
 
@@ -251,9 +250,9 @@ _Loops execute a block of code multiple times, based on a fixed number of iterat
   _```  console.log("iteraion number :", i);```_\
   _```}```_
 
-_<sub>**Initialization** : sets the starting value (let i = 0)<sub>_\
-_<sub>**Condition** : checks whether the loop should continue (i < 5)<sub>_\
-_<sub>**Increment** : updates the counter after each iteration (i++)<sub>_
+  _<sub>**Initialization** : sets the starting value (let i = 0)<sub>_\
+  _<sub>**Condition** : checks whether the loop should continue (i < 5)<sub>_\
+  _<sub>**Increment** : updates the counter after each iteration (i++)<sub>_
 
 * _**while** : continues executing as long as its condition evaluates to ```true```. The condition is checked before each iteration._
 
@@ -263,7 +262,7 @@ _<sub>**Increment** : updates the counter after each iteration (i++)<sub>_
   _```  count++;```_\
   _```}```_
 
-_<sub>To prevent an infinite loop, it is necessary to modify the variable involved in the condition within the loop body.<sub>_
+  _<sub>To prevent an infinite loop, it is necessary to modify the variable involved in the condition within the loop body.<sub>_
 
 * _**do...while** : ensures that the code block runs at least once, as the condition is evaluated only after the initial execution._
 
@@ -275,9 +274,27 @@ _<sub>To prevent an infinite loop, it is necessary to modify the variable involv
 
 * _**for...of** : is used to iterate over **iterable objects**, such as arrays, strings and more. It retrieves the values of the iterable one by one._
 
-  ```for (const element of iterable) {```\
-  ```  //code block using element```\
-  ```}```
+  _```for (const element of iterable) {```_\
+  _```  //code block using element```_\
+  _```}```_
 
-_<sub>**iterable** refers to any object that implements the iterable protocol (arrays, strings..).<sub>_\
-_<sub>**element** represents the current value being accessed in each iteration.<sub>_
+  _<sub>**iterable** refers to any object that implements the iterable protocol (arrays, strings..).<sub>_\
+  _<sub>**element** represents the current value being accessed in each iteration.<sub>_
+
+* _**for...in** : is used to iterate over the **enumerable properties** (keys) of an object._
+
+  _```for (const key in object) {```_\
+  _```  //code block using key and object[key]```_\
+  _```}```_
+
+  _<sub>**object** refers to the target object whose properties are being iterated.<sub>_\
+  _<sub>**key** represents each property name (as a string) on the object.<sub>_\
+
+_JavaScript offers two important statements to control the flow inside loops :_
+
+  * _**break** : immediately **terminates** the loop in which it is placed, and trasfers control to the first statement following the loop._\
+  * _**continue** : **skips** the current iteration of the loop and moves to the next one immediately._
+
+_These statements help manage how and when a loop stops or skips iterations, providing flexibility in looping logic._
+  
+## _Functions_
