@@ -298,3 +298,34 @@ _JavaScript offers two important statements to control the flow inside loops :_
 _These statements help manage how and when a loop stops or skips iterations, providing flexibility in looping logic._
   
 ## _Functions_
+
+_A function is a set of instructions enclosed in a block of code that performs a specific task. It is identified by a **name**, can accept **arguments** (input parameters), and can **return** a value._\
+_Functions allow the grouping of related operations into a reusable unit, improving modularity, reducing repetition, and enabling abstraction._
+
+### _Function Declaration_
+
+_A function can be declared using the ```function``` keyword, followed by a name, a parameter list in parentheses (optional), and a block of code enclosed in curly braces._
+
+_```function greet(){```_\
+_```  console.log("Hello world!");```_\
+_```}```_
+
+_Declaring a function does not execute it immediately. In fact, the declaration simply registers the function with the JavaScript engine, associating the given name with a specific block of code that can be executed later by calling the function._
+
+```greet();```
+
+### _Parameters and Arguments_
+
+_Functions can be defined to accept **parameters**, which act as placeholders for values that will be provided during function execution. When the function is called, **arguments** are passed to replace the parameters._
+
+_```function greet(name) {```_\
+_```  console.log("Hello, " + name);```_\
+_```}```_
+
+_```greet("Alice")```_  
+
+_<sub>"Alice" is the argument passed to the parameter "name"<sub>_
+
+_If fewer arguments are passed the missing parameters will be ```undefined```. Extra arguments are ignored unless explicitly handled._
+
+_Inside a function, a special object called ```arguments``` is available. It contains all the arguments passed to the function, regardless of the number of parameters declared._
