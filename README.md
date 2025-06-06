@@ -328,4 +328,5 @@ _<sub>"Alice" is the argument passed to the parameter "name"<sub>_
 
 _If fewer arguments are passed the missing parameters will be ```undefined```. Extra arguments are ignored unless explicitly handled._
 
-_Inside a function, a special object called ```arguments``` is available. It contains all the arguments passed to the function, regardless of the number of parameters declared._
+_Inside every **non-arrow** function, a special object called ```arguments``` is available. It contains all the arguments passed to the function, regardless of the number of parameters declared._\
+_It is an **array-like** object, in fact it has indexed elements and a **length** property, but it is not a real array and therefore lacks array methods like **.map()** or **.forEach()**._
