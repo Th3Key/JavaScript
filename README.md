@@ -322,11 +322,16 @@ _```function greet(name) {```_\
 _```  console.log("Hello, " + name);```_\
 _```}```_
 
-_```greet("Alice")```_  
+_```greet("Alice");```_  
 
 _<sub>"Alice" is the argument passed to the parameter "name"<sub>_
 
 _If fewer arguments are passed the missing parameters will be ```undefined```. Extra arguments are ignored unless explicitly handled._
 
+_It's also possible to assign **default** values to function parameters directly in function declaration. This means if a value isn't provided when the function is called, the default will be used._
+
+_```function myFunc(param1 = defaultValue1, param2 = defaultValue2){}```_
+
 _Inside every **non-arrow** function, a special object called ```arguments``` is available. It contains all the arguments passed to the function, regardless of the number of parameters declared._\
 _It is an **array-like** object, in fact it has indexed elements and a **length** property, but it is not a real array and therefore lacks array methods like **.map()** or **.forEach()**._
+
