@@ -58,6 +58,7 @@ _JavaScript data types are divided into two main categories :_
   _- ```undefined```: a variable that has been declared but not given a value._\
   _- ```null```: rapresents an intentional **empty value**._\
   _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
+  
 * _**Non-Primitive Types** (Objects) :_
   
   _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
@@ -224,7 +225,7 @@ _They allow a program to make decisions and execute certain blocks of code based
   _```  console.log("option 4");```_\
   _```}```_
 
-* _**switch** : is used to perform different actions b ased on the value of a variable or expression. It's often used as a cleaner alternative to multiple **if...else if** conditions, especially when checking the same variable against many different values._
+* _**switch** : is used to perform different actions based on the value of a variable or expression. It's often used as a cleaner alternative to multiple **if...else if** conditions, especially when checking the same variable against many different values._
 
   _```switch (expression) {```_\
   _```  case value1:```_\
@@ -247,7 +248,7 @@ _Loops execute a block of code multiple times, based on a fixed number of iterat
 * _**for** : repeats code a predeterminated number of times, it consists of three parts within parentheses : **initialization**, **condition** and **increment**._
 
   _```for (let i = 0; i < 5; i++) {```_\
-  _```  console.log("iteraion number :", i);```_\
+  _```  console.log("iteration number :", i);```_\
   _```}```_
 
   _<sub>**Initialization** : sets the starting value (let i = 0)<sub>_\
@@ -335,3 +336,48 @@ _```function myFunc(param1 = defaultValue1, param2 = defaultValue2){}```_
 _Inside every **non-arrow** function, a special object called ```arguments``` is available. It contains all the arguments passed to the function, regardless of the number of parameters declared._\
 _It is an **array-like** object, in fact it has indexed elements and a **length** property, but it is not a real array and therefore lacks array methods like **.map()** or **.forEach()**._
 
+_```function sum(){```_\
+_```  let z = 0;```_\
+_```  let i;```_\
+_```  for (i in arguments){```_\
+_```    z += arguments[i];```_\
+_```  }```_\
+_```  return z;```_\
+_```}```_
+
+_This object is useful when it's unclear how many arguments a function will receive. Instead of fixing the number of parameters, it allows the function to collect any number of arguments, making it more flexible and reusable._
+
+_In modern JavaScript, the **rest parameter** (**...**) offers a cleaner and more powerful alternative to the arguments object. It allows a function to collect all remaining arguments into a real array, enabling the use of array methods like **.map()**, **.forEach()**, and **.reduce()**._\
+_Unlike **arguments**, the rest parameter works in both arrow and regular functions, and provides better readability and control when working with an unknown number of arguments._
+
+_```function sum(...numbers){```_\
+_```  let total = 0;```_\
+_```  for (let num of numbers){```_\
+_```    total += num;```_\
+_```  }```_\
+_```  return total;```_\
+_``` }```_
+
+_It's possible to use the **rest** operator to collect only a part of the arguments into an array, allowing separation of specific parameters from the rest._
+
+_```function showColors(firstColor, secondColor, ...otherColors) {```_\
+_```  console.log("First :", firstColor);```_\
+_```  console.log("Second :", secondColor);```_\
+_```  console.log("Others :", otherColors);```_\
+_```}```_
+
+_```showColors("red", "blue", "green", "yellow", "purple");```_
+
+### Return Statement
+
+_The **return** statement is used in functions to send a value back to the place where the function was called. When a function reaches a return statement, it stops executing and returns the specified value._\
+_Without a return statement, a function returns **undefined** by default._
+
+_```function multiply(a, b){```_\
+_```  return a * b;```_\
+_```}```_
+
+_```const result = multiply(4, 5);```_\
+_```console.log(result);```_
+
+<sub>The multiply function calculates the product of two numbers and returns the result. The returned value is then stored in the variable result and printed to the console.<sub>
