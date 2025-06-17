@@ -73,6 +73,12 @@ _A variable is a container that holds a value. There are three main ways to decl
 
 _Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
 
+_Variables declared outside any function or block are considered **global** and can be accessed throughout the entire program, including inside functions and blocks, unless shadowed by a local variable with the same name. Variables declared inside a function or block are **local** to that scope and cannot be accessed from the outside._
+
+<sub>When declared globally, **let** and **const** create variables that are not added to the **global object**, whereas **var** does.<sub>
+
+_The **global object** is the top-level object in JavaScript that represents the global scope. In browsers, it is referred to as **window**, while in Node.js it is known as **global**. Variables declared with **var** at the global level become properties of the global object, meaning they can also be accessed via **window.variableName** (in browsers) or **global.variableName** (in Node.js), whereas variables declared with **let** and **const** do not attach themselves to this object._
+
 ## _Type Conversion_
 
 _JavaScript supports :_ 
