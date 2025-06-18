@@ -386,4 +386,97 @@ _```}```_
 _```const result = multiply(4, 5);```_\
 _```console.log(result);```_
 
-<sub>The multiply function calculates the product of two numbers and returns the result. The returned value is then stored in the variable result and printed to the console.<sub>
+_<sub>The multiply function calculates the product of two numbers and returns the result. The returned value is then stored in the variable result and printed to the console.<sub>_
+
+### Arrow Functions
+
+_Arrow functions are a shorter syntax for writing functions in JavaScript, they are especially useful for writing concise, anonymous functions._
+
+_**Regular Function** :_
+
+  _```function add(a, b) {```_\
+  _```  return a + b;```_\
+  _```}```_
+
+_**Arrow Function** :_
+
+  _```const add = (a, b) => {```_\
+  _```  return a + b;```_\
+  _```};```_
+
+_If the function has only **one expression**, it's possible to omit both the braces and the **return** keyword :_
+
+  _```const add = (a, b) => a + b;```_
+
+_If there is only **one parameter**, i'ts possible to omit the parentheses :_
+
+  _```const square = x => x * x;```_
+  
+_If there are **no parameters**, empty parentheses are used :_
+
+  _```const sayHi = () => console.log("Hi!");```_
+
+_Arrow Functions lack their own **this** (which is inherited from the surrounding scope) and **arguments** objects (using rest parameter is used to handle arguments), they also cannot be used as constructors with **new**._ 
+
+### Function Hoisting
+
+_**Hoisting** is JavaScript's behavior of moving declarations to the top of their scope during the compilation phase._
+
+* _**Function Declarations** are hoisted entirely (name and definition) so they can be called before they appear in the code :_
+
+  _```greet();```_\
+  _```function greet() {```_\
+  _```  console.log("Hello");```_\
+  _```}```_
+
+* _**Function expressions** and **Arrow functions** are not hoisted with their definition. Only the variable declaration is hoisted (as **undefined**), so calling them before the assignment causes an error._
+
+  _```greet();```_\
+  _```const greet = function() {```_\
+  _```  console.log("Hello");```_\
+  _```};```_
+
+_<sub>TypeError cause greet is not a function.<sub>_
+
+### this Keyword
+
+_In JavaScript, **this** is a special keyword that refers to the context in which a function is executed. The value of **this** depends on how a function is called, not where it's defined. It can refer to different things depending on the situation :_
+
+  * _**Global Context** : in the global scope (outside of any function), **this** refers to the **global object**;_
+  * _**Inside a Regular Function** : **this** refers to the **global object** (in non-strict mode), or **undefined** (in strict mode);_
+  * _**Inside an Object Method** : when a function is called as a method of an object, **this** refers to the **object itself**;_
+
+    _```const person = {```_\
+      _```name: "Alice",```_\
+      _```greet() {```_\
+        _```console.log("Hi, I'm " + this.name);```_\
+      _```}```_\
+    _```};```_
+
+    _```person.greet();```_
+
+  _<sub>The output will be "Hi, i'm Alice".<sub>_
+    
+  * _**Arrow Functions** : do not have their own **this**. They inherit **this** from the surrounding (lexical) scope;_
+
+    _```const person = {```_\
+      _```name: "Bob",```_\
+      _```greet: () => {```_\
+        _```console.log("Hi, I'm " + this.name);```_\
+      _```}```_\
+    _```};```_
+
+    _```person.greet();```_
+
+  _<sub>The output will be "Hi, i'm undefined" because objects do not create their own **lexical environment** (only functions and blocks do). Therefore, the arrow function inherits the value of **this** from the surrounding scope, which is not the object itself.<sub>_
+
+  * _**Constructor Functions** : when a function is used with **new**, **this** refers to the new object being created._
+
+    _```function Animal(name) {```_\
+      _```this.name = name;```_\
+    _```}```_
+
+    _```const dog = new Animal("Fido");```_\
+    _```console.log(dog.name);```_
+
+    _<sub>The output will be "Fido"<sub>_
