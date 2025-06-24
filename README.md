@@ -36,32 +36,21 @@ _Like any language, JavaScript provides character sequences to insert **comments
 
 _Whitespace in JS has no special meaning in expressions and we can use it to improve the **readability** of our code._
 
-## _Data Types_
+## _Variables_
 
-_Data types define the kind of value a variable can hold. JavaScript is a **dynamically typed language**, meaning you don't need to declare the type of a variable (it is determined automatically at runtime)._\
-_Despite being flexible, JS still enforces rules based on the type of the data we are working with (these rules affect how values behave, how operations are performed and how values are compared)._
+_A variable is a container that holds a value. There are three main ways to declare variables in JS :_
 
-_JavaScript data types are divided into two main categories :_
+* _```let```: for variables that can change. It is **block-scoped** (exists only inside the {} block where they are defined)._
+* _```const```: for variables that must not change. It is **block-scoped**._
+* _```var```: the old way (avoid using it). It is **function-scoped** (exists in the whole function)._
 
-* _**Primitive Types** :_
-  
-  _**Basic**, **immutable** values (once a primitive value is created, it cannot be altered; however, the variable holding it can be reassigned to a new value). These values are stored directly in memory and **compared by value**, not by reference._
-  
-    _- ```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
-  
-    _- ```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
-  
-  _<sub>Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value.<sub>_
-  
-  _- ```bigint```: used for very **large integers**, beyond the number limit._\
-  _- ```boolean```: **True** or **False** values._\
-  _- ```undefined```: a variable that has been declared but not given a value._\
-  _- ```null```: rapresents an intentional **empty value**._\
-  _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
-  
-* _**Non-Primitive Types** (Objects) :_
-  
-  _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
+_Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
+
+_Variables declared outside any function or block are considered **global** and can be accessed throughout the entire program, including inside functions and blocks, unless shadowed by a local variable with the same name. Variables declared inside a function or block are **local** to that scope and cannot be accessed from the outside._
+
+<sub>When declared globally, **let** and **const** create variables that are not added to the **global object**, whereas **var** does.<sub>
+
+_The **global object** is the top-level object in JavaScript that represents the global scope. In browsers, it is referred to as **window**, while in Node.js it is known as **global**. Variables declared with **var** at the global level become properties of the global object, meaning they can also be accessed via **window.variableName** (in browsers) or **global.variableName** (in Node.js), whereas variables declared with **let** and **const** do not attach themselves to this object._
 
 ## _Operators and Expressions_
 
@@ -114,22 +103,58 @@ _Operators perform actions on values (operands). They are grouped into categorie
 * _**Type Operators** :_
    - _```typeof``` : returns type of value_
    - _```instanceof``` : checks if value is an instance of a class_
+  
+## _Data Types_
 
-## _Variables_
+_Data types define the kind of value a variable can hold. JavaScript is a **dynamically typed language**, meaning you don't need to declare the type of a variable (it is determined automatically at runtime)._\
+_Despite being flexible, JS still enforces rules based on the type of the data we are working with (these rules affect how values behave, how operations are performed and how values are compared)._
 
-_A variable is a container that holds a value. There are three main ways to declare variables in JS :_
+_JavaScript data types are divided into two main categories :_
 
-* _```let```: for variables that can change. It is **block-scoped** (exists only inside the {} block where they are defined)._
-* _```const```: for variables that must not change. It is **block-scoped**._
-* _```var```: the old way (avoid using it). It is **function-scoped** (exists in the whole function)._
+* _**Primitive Types** :_
+  
+  _**Basic**, **immutable** values (once a primitive value is created, it cannot be altered; however, the variable holding it can be reassigned to a new value). These values are stored directly in memory and **compared by value**, not by reference._
+  
+    _- ```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
+  
+    _- ```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
+  
+  _<sub>Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value.<sub>_
+  
+  _- ```bigint```: used for very **large integers**, beyond the number limit._\
+  _- ```boolean```: **True** or **False** values._\
+  _- ```undefined```: a variable that has been declared but not given a value._\
+  _- ```null```: rapresents an intentional **empty value**._\
+  _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
+  
+* _**Non-Primitive Types** (Objects) :_
+  
+  _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
 
-_Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
+## _Type Conversion_
 
-_Variables declared outside any function or block are considered **global** and can be accessed throughout the entire program, including inside functions and blocks, unless shadowed by a local variable with the same name. Variables declared inside a function or block are **local** to that scope and cannot be accessed from the outside._
+_JavaScript supports :_ 
 
-<sub>When declared globally, **let** and **const** create variables that are not added to the **global object**, whereas **var** does.<sub>
+* _**Implicit Conversion** : JS automatically converts types when needed (it is not always safe)._
+* _**Explicit Conversion** (Manual) :_
 
-_The **global object** is the top-level object in JavaScript that represents the global scope. In browsers, it is referred to as **window**, while in Node.js it is known as **global**. Variables declared with **var** at the global level become properties of the global object, meaning they can also be accessed via **window.variableName** (in browsers) or **global.variableName** (in Node.js), whereas variables declared with **let** and **const** do not attach themselves to this object._
+  - _Convert to **String** :_
+
+    + _```String(value)```_
+    + _```value.toString()```_
+      
+  - _Convert to **Number** :_
+  
+    + _```Number(value)```_
+    + _```parseInt(value)``` or ```parseFloat(value)```_
+    
+    _<sub>It stops at the first invalid character, for example if we have ```value = "123abc"``` the result of ```parseInt(value)``` would be ```123```.<sub>_
+    
+    + _Unary Plus Operator : ```+value```_
+    
+    _<sub>Converts the operand to a number exactly like ```Number(value)```, if the value can't be converted to a valid number it returns **NaN**.<sub>_
+  
+  - _Convert to **Boolean** : ```Boolean(value)```_
 
 ## _Arrays_
 
@@ -157,33 +182,6 @@ _```console.log(colors[0]);``` output : "black"_
 
 _<sub>Accessing an index outside the array bounds returns **undefined**.<sub>_\
 _<sub>Assigning a value to an index beyond the current length increases the array size, filling missing elements with **undefined**.<sub>_
-
-## _Type Conversion_
-
-_JavaScript supports :_ 
-
-* _**Implicit Conversion** : JS automatically converts types when needed (it is not always safe)._
-* _**Explicit Conversion** (Manual) :_
-
-  - _Convert to **String** :_
-
-    + _```String(value)```_
-    + _```value.toString()```_
-      
-  - _Convert to **Number** :_
-  
-    + _```Number(value)```_
-    + _```parseInt(value)``` or ```parseFloat(value)```_
-    
-    _<sub>It stops at the first invalid character, for example if we have ```value = "123abc"``` the result of ```parseInt(value)``` would be ```123```.<sub>_
-    
-    + _Unary Plus Operator : ```+value```_
-    
-    _<sub>Converts the operand to a number exactly like ```Number(value)```, if the value can't be converted to a valid number it returns **NaN**.<sub>_
-  
-  - _Convert to **Boolean** : ```Boolean(value)```_
-
-## _Scope and Closures_
 
 ## _Control Flow_
 
@@ -440,7 +438,9 @@ _**Hoisting** is JavaScript's behavior of moving declarations to the top of thei
 
 _<sub>TypeError cause greet is not a function.<sub>_
 
-### this Keyword
+## _Scope and Closures_
+
+## this Keyword
 
 _In JavaScript, **this** is a special keyword that refers to the context in which a function is executed. The value of **this** depends on how a function is called, not where it's defined. It can refer to different things depending on the situation :_
 
