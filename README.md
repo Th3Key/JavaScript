@@ -79,30 +79,32 @@ _Variables declared outside any function or block are considered **global** and 
 
 _The **global object** is the top-level object in JavaScript that represents the global scope. In browsers, it is referred to as **window**, while in Node.js it is known as **global**. Variables declared with **var** at the global level become properties of the global object, meaning they can also be accessed via **window.variableName** (in browsers) or **global.variableName** (in Node.js), whereas variables declared with **let** and **const** do not attach themselves to this object._
 
-## _Type Conversion_
+## _Arrays_
 
-_JavaScript supports :_ 
+_An **array** is a special variable that can hold multiple values in an **ordered collection**, where each value, called an **element**, is accessed by a **zero-based index** (starting at 0). Arrays can contain **heterogeneous data types** (elements within the same array can be numbers, strings, objects, or even other arrays) and can **dynamically grow or shrink in size**._
 
-* _**Implicit Conversion** : JS automatically converts types when needed (it is not always safe)._
-* _**Explicit Conversion** (Manual) :_
+_To create arrays in JavaScript there are two main ways :_ 
 
-  - _Convert to **String** :_
+* _**Array Literal** :_
 
-    + _```String(value)```_
-    + _```value.toString()```_
-      
-  - _Convert to **Number** :_
-  
-    + _```Number(value)```_
-    + _```parseInt(value)``` or ```parseFloat(value)```_
-    
-    _<sub>It stops at the first invalid character, for example if we have ```value = "123abc"``` the result of ```parseInt(value)``` would be ```123```.<sub>_
-    
-    + _Unary Plus Operator : ```+value```_
-    
-    _<sub>Converts the operand to a number exactly like ```Number(value)```, if the value can't be converted to a valid number it returns **NaN**.<sub>_
-  
-  - _Convert to **Boolean** : ```Boolean(value)```_
+  - _```const numbers = [10, 20, 30]```_
+  - _```const fruits = ["apple", "peach", "orange"]```_
+  - _```const mixed = [1, "hi", true]```_
+
+* _**Array Constructor** :_
+
+  - _```const arr1 = new Array(3)``` : creates an empty array of length 3._
+  - _```const arr2 = new Array(1, 2, 3)``` : creates ```[1, 2, 3]``` cause when the array constructor is used with multiple arguments each argument becomes an element in the new array._
+ 
+_To **access** and **modify** array elements we use its **zero-based index** : ```array[index]```._
+
+_```const colors = ["red", "green", "blue"];```_\
+_```console.log(colors[0]);``` output : "red"_\
+_```colors[0] = "black";```_\
+_```console.log(colors[0]);``` output : "black"_
+
+_<sub>Accessing an index outside the array bounds returns **undefined**.<sub>_\
+_<sub>Assigning a value to an index beyond the current length increases the array size, filling missing elements with **undefined**.<sub>_
 
 ## _Operators and Expressions_
 
@@ -156,32 +158,32 @@ _Operators perform actions on values (operands). They are grouped into categorie
    - _```typeof``` : returns type of value_
    - _```instanceof``` : checks if value is an instance of a class_
 
-## _Arrays_
+## _Type Conversion_
 
-_An **array** is a special variable that can hold multiple values in an **ordered collection**, where each value, called an **element**, is accessed by a **zero-based index** (starting at 0). Arrays can contain **heterogeneous data types** (elements within the same array can be numbers, strings, objects, or even other arrays) and can **dynamically grow or shrink in size**._
+_JavaScript supports :_ 
 
-_To create arrays in JavaScript there are two main ways :_ 
+* _**Implicit Conversion** : JS automatically converts types when needed (it is not always safe)._
+* _**Explicit Conversion** (Manual) :_
 
-* _**Array Literal** :_
+  - _Convert to **String** :_
 
-  - _```const numbers = [10, 20, 30]```_
-  - _```const fruits = ["apple", "peach", "orange"]```_
-  - _```const mixed = [1, "hi", true]```_
+    + _```String(value)```_
+    + _```value.toString()```_
+      
+  - _Convert to **Number** :_
+  
+    + _```Number(value)```_
+    + _```parseInt(value)``` or ```parseFloat(value)```_
+    
+    _<sub>It stops at the first invalid character, for example if we have ```value = "123abc"``` the result of ```parseInt(value)``` would be ```123```.<sub>_
+    
+    + _Unary Plus Operator : ```+value```_
+    
+    _<sub>Converts the operand to a number exactly like ```Number(value)```, if the value can't be converted to a valid number it returns **NaN**.<sub>_
+  
+  - _Convert to **Boolean** : ```Boolean(value)```_
 
-* _**Array Constructor** :_
-
-  - _```const arr1 = new Array(3)``` : creates an empty array of length 3._
-  - _```const arr2 = new Array(1, 2, 3)``` : creates ```[1, 2, 3]``` cause when the array constructor is used with multiple arguments each argument becomes an element in the new array._
- 
-_To **access** and **modify** array elements we use its **zero-based index** : ```array[index]```._
-
-_```const colors = ["red", "green", "blue"];```_\
-_```console.log(colors[0]);``` output : "red"_\
-_```colors[0] = "black";```_\
-_```console.log(colors[0]);``` output : "black"_
-
-_<sub>Accessing an index outside the array bounds returns **undefined**.<sub>_\
-_<sub>Assigning a value to an index beyond the current length increases the array size, filling missing elements with **undefined**.<sub>_
+## _Scope and Closures_
 
 ## _Control Flow_
 
