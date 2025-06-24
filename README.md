@@ -43,9 +43,7 @@ _A variable is a container that holds a value. There are three main ways to decl
 * _```let```: for variables that can change. It is **block-scoped** (exists only inside the {} block where they are defined)._
 * _```const```: for variables that must not change. It is **block-scoped**._
 * _```var```: the old way (avoid using it). It is **function-scoped** (exists in the whole function)._
-
-_Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
-
+ 
 _Variables declared outside any function or block are considered **global** and can be accessed throughout the entire program, including inside functions and blocks, unless shadowed by a local variable with the same name. Variables declared inside a function or block are **local** to that scope and cannot be accessed from the outside._
 
 <sub>When declared globally, **let** and **const** create variables that are not added to the **global object**, whereas **var** does.<sub>
@@ -115,17 +113,17 @@ _JavaScript data types are divided into two main categories :_
   
   _**Basic**, **immutable** values (once a primitive value is created, it cannot be altered; however, the variable holding it can be reassigned to a new value). These values are stored directly in memory and **compared by value**, not by reference._
   
-    _- ```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
+    - _```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
   
-    _- ```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
+    - _```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
   
-  _<sub>Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value.<sub>_
+      _<sub>Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value.<sub>_
   
-  _- ```bigint```: used for very **large integers**, beyond the number limit._\
-  _- ```boolean```: **True** or **False** values._\
-  _- ```undefined```: a variable that has been declared but not given a value._\
-  _- ```null```: rapresents an intentional **empty value**._\
-  _- ```symbol```: creates a unique, unchangeable value, used ad object property keys._
+  - _```bigint```: used for very **large integers**, beyond the number limit._\
+  - _```boolean```: **True** or **False** values._\
+  - _```undefined```: a variable that has been declared but not given a value._\
+  - _```null```: rapresents an intentional **empty value**._\
+  - _```symbol```: creates a unique, unchangeable value, used ad object property keys._
   
 * _**Non-Primitive Types** (Objects) :_
   
@@ -418,9 +416,13 @@ _If there are **no parameters**, empty parentheses are used :_
 
 _Arrow Functions lack their own **this** (which is inherited from the surrounding scope) and **arguments** objects (using rest parameter is used to handle arguments), they also cannot be used as constructors with **new**._ 
 
-### Function Hoisting
+## Hoisting
 
-_**Hoisting** is JavaScript's behavior of moving declarations to the top of their scope during the compilation phase._
+_In JavaScript, **hoisting** is a behavior where declarations of variables and functions are conceptually moved to the top of their containing scope during the compilation phase. This means that sometimes it's possible to use variables or call functions before their actual line of declaration appears in the source code. However, the exact behavior depends on the type of declaration involved :_
+
+* _**Variables declared with var** : these variables have their declaration hoisted to the top of their scope, meaning JavaScript knows the variable exists even before the line where it is written. However, the assignment (the actual value given to the variable) stays where it appears in the code. Because of this, trying to access the variable before the assignment line does not cause an error, but the variable's value will be **undefined**._
+  
+* _**Variables declared with let and const** : these variables are **hoisted** as well, but they are **not initialized** immediately. Instead, they are hoisted into a **temporal dead zone** (**TDZ**), which is the period between entering their block scope and the variable's actual declaration. During this time, accessing these variables results in a **ReferenceError**._ 
 
 * _**Function Declarations** are hoisted entirely (name and definition) so they can be called before they appear in the code :_
 
@@ -436,7 +438,7 @@ _**Hoisting** is JavaScript's behavior of moving declarations to the top of thei
   _```  console.log("Hello");```_\
   _```};```_
 
-_<sub>TypeError cause greet is not a function.<sub>_
+_<sub>TypeError : greet is not a function.<sub>_
 
 ## _Scope and Closures_
 
