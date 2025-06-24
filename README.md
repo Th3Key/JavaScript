@@ -63,49 +63,6 @@ _JavaScript data types are divided into two main categories :_
   
   _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
 
-## _Variables_
-
-_A variable is a container that holds a value. There are three main ways to declare variables in JS :_
-
-* _```let```: for variables that can change. It is **block-scoped** (exists only inside the {} block where they are defined)._
-* _```const```: for variables that must not change. It is **block-scoped**._
-* _```var```: the old way (avoid using it). It is **function-scoped** (exists in the whole function)._
-
-_Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
-
-_Variables declared outside any function or block are considered **global** and can be accessed throughout the entire program, including inside functions and blocks, unless shadowed by a local variable with the same name. Variables declared inside a function or block are **local** to that scope and cannot be accessed from the outside._
-
-<sub>When declared globally, **let** and **const** create variables that are not added to the **global object**, whereas **var** does.<sub>
-
-_The **global object** is the top-level object in JavaScript that represents the global scope. In browsers, it is referred to as **window**, while in Node.js it is known as **global**. Variables declared with **var** at the global level become properties of the global object, meaning they can also be accessed via **window.variableName** (in browsers) or **global.variableName** (in Node.js), whereas variables declared with **let** and **const** do not attach themselves to this object._
-
-## _Arrays_
-
-_An **array** is a special variable that can hold multiple values in an **ordered collection**, where each value, called an **element**, is accessed by a **zero-based index** (starting at 0). Arrays can contain **heterogeneous data types** (elements within the same array can be numbers, strings, objects, or even other arrays) and can **dynamically grow or shrink in size**._
-
-_To create arrays in JavaScript there are two main ways :_ 
-
-* _**Array Literal** :_
-
-  - _```const numbers = [10, 20, 30]```_
-  - _```const fruits = ["apple", "peach", "orange"]```_
-  - _```const mixed = [1, "hi", true]```_
-
-* _**Array Constructor** :_
-
-  - _```const arr1 = new Array(3)``` : creates an empty array of length 3._
-  - _```const arr2 = new Array(1, 2, 3)``` : creates ```[1, 2, 3]``` cause when the array constructor is used with multiple arguments each argument becomes an element in the new array._
- 
-_To **access** and **modify** array elements we use its **zero-based index** : ```array[index]```._
-
-_```const colors = ["red", "green", "blue"];```_\
-_```console.log(colors[0]);``` output : "red"_\
-_```colors[0] = "black";```_\
-_```console.log(colors[0]);``` output : "black"_
-
-_<sub>Accessing an index outside the array bounds returns **undefined**.<sub>_\
-_<sub>Assigning a value to an index beyond the current length increases the array size, filling missing elements with **undefined**.<sub>_
-
 ## _Operators and Expressions_
 
 _An expression is any code that produces a value._
@@ -157,6 +114,49 @@ _Operators perform actions on values (operands). They are grouped into categorie
 * _**Type Operators** :_
    - _```typeof``` : returns type of value_
    - _```instanceof``` : checks if value is an instance of a class_
+
+## _Variables_
+
+_A variable is a container that holds a value. There are three main ways to declare variables in JS :_
+
+* _```let```: for variables that can change. It is **block-scoped** (exists only inside the {} block where they are defined)._
+* _```const```: for variables that must not change. It is **block-scoped**._
+* _```var```: the old way (avoid using it). It is **function-scoped** (exists in the whole function)._
+
+_Variables declared with **var** are **hoisted** (moved to the top of their scope) and initialized to **undefined**, while variables declared with **let** and **const** are **hoisted** too, but **not initialized**. This is because **let** and **const** are hoisted into a **temporal dead zone** (**TDZ**), which is the space between entering the block and the variable's actual declaration (where the variable exists but cannot be accessed)._
+
+_Variables declared outside any function or block are considered **global** and can be accessed throughout the entire program, including inside functions and blocks, unless shadowed by a local variable with the same name. Variables declared inside a function or block are **local** to that scope and cannot be accessed from the outside._
+
+<sub>When declared globally, **let** and **const** create variables that are not added to the **global object**, whereas **var** does.<sub>
+
+_The **global object** is the top-level object in JavaScript that represents the global scope. In browsers, it is referred to as **window**, while in Node.js it is known as **global**. Variables declared with **var** at the global level become properties of the global object, meaning they can also be accessed via **window.variableName** (in browsers) or **global.variableName** (in Node.js), whereas variables declared with **let** and **const** do not attach themselves to this object._
+
+## _Arrays_
+
+_An **array** is a special variable that can hold multiple values in an **ordered collection**, where each value, called an **element**, is accessed by a **zero-based index** (starting at 0). Arrays can contain **heterogeneous data types** (elements within the same array can be numbers, strings, objects, or even other arrays) and can **dynamically grow or shrink in size**._
+
+_To create arrays in JavaScript there are two main ways :_ 
+
+* _**Array Literal** :_
+
+  - _```const numbers = [10, 20, 30]```_
+  - _```const fruits = ["apple", "peach", "orange"]```_
+  - _```const mixed = [1, "hi", true]```_
+
+* _**Array Constructor** :_
+
+  - _```const arr1 = new Array(3)``` : creates an empty array of length 3._
+  - _```const arr2 = new Array(1, 2, 3)``` : creates ```[1, 2, 3]``` cause when the array constructor is used with multiple arguments each argument becomes an element in the new array._
+ 
+_To **access** and **modify** array elements we use its **zero-based index** : ```array[index]```._
+
+_```const colors = ["red", "green", "blue"];```_\
+_```console.log(colors[0]);``` output : "red"_\
+_```colors[0] = "black";```_\
+_```console.log(colors[0]);``` output : "black"_
+
+_<sub>Accessing an index outside the array bounds returns **undefined**.<sub>_\
+_<sub>Assigning a value to an index beyond the current length increases the array size, filling missing elements with **undefined**.<sub>_
 
 ## _Type Conversion_
 
