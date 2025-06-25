@@ -445,7 +445,31 @@ _<sub>TypeError : greet is not a function.<sub>_
 _**Scope** in JavaScript is the current context of execution. It determines which variables are accessible at a given part of the code._
 
  * _**Global Scope** : Variables declared **outside** any function or block are called **global** and are accessible anywhere in the code after declaration._
+
+    _```let globalVar = "i'm global";```_
+   
+    _```function show() {```_\
+    _``` console.log(globalVar);```_\
+    _```}```_
+
+   _```show();```_\
+   _```console.log(globalVar);```_
+
+   <sub>globalVar is accessible from anywhere.<sub>
+   
  * _**Function Scope** : Variables declared with **var**, **let**, or **const** inside a function are accessible only within that function._
+
+   _```function example() {```_\
+   _``` let localVar = "Inside function";```_\
+   _``` console.log(localVar);```_\
+   _```}```_
+
+   _```example();```_
+   
+   _```console.log(localVar);```_ **ReferenceError**
+
+   <sub>The variable is accessible only inside the function where is declared so we'll get a ReferenceError trying to log it outside the function.<sub>
+   
  * _**Block Scope** : Applies to **let** and **const** inside blocks {}. These variables are accessible only inside the block._
  * _**Lexical Scope** : Functions access variables from the scope in which they were **defined**, not where they are called._ 
 
