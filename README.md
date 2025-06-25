@@ -442,6 +442,13 @@ _<sub>TypeError : greet is not a function.<sub>_
 
 ## _Scope and Closures_
 
+_**Scope** in JavaScript is the current context of execution. It determines which variables are accessible at a given part of the code._
+
+ * _**Global Scope** : Variables declared **outside** any function or block are called **global** and are accessible anywhere in the code after declaration._
+ * _**Function Scope** : Variables declared with **var**, **let**, or **const** inside a function are accessible only within that function._
+ * _**Block Scope** : Applies to **let** and **const** inside blocks {}. These variables are accessible only inside the block._
+ * _**Lexical Scope** : Functions access variables from the scope in which they were **defined**, not where they are called._ 
+
 ## this Keyword
 
 _In JavaScript, **this** is a special keyword that refers to the context in which a function is executed. The value of **this** depends on how a function is called, not where it's defined. It can refer to different things depending on the situation :_
