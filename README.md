@@ -416,6 +416,138 @@ _If there are **no parameters**, empty parentheses are used :_
 
 _Arrow Functions lack their own **this** (which is inherited from the surrounding scope) and **arguments** objects (using rest parameter is used to handle arguments), they also cannot be used as constructors with **new**._ 
 
+### Built-in Functions
+
+_Also called **predefined functions**, are standard functions provided by the JavaScript environment to perform common tasks. These functions are available by default and do not require manual definition._
+
+* ***Output & Utility Functions***
+  
+  - _```console.log()``` : outputs a message to the console._
+    
+    <sub>console.log("Message")<sub>
+    
+  - _```alert()``` : shows an alert dialog._
+
+    <sub>alert("Message")<sub>
+    
+  - _```confirm()``` : shows a confirmation dialog._
+
+    <sub>confirm("Are you sure?")<sub>
+    
+  - _```prompt()``` : shows an input dialog._
+
+    <sub>prompt("Enter your name")<sub>
+    
+  - _```typeof()``` : returns the type of a variable._
+
+    <sub>typeof 123 --> "number"<sub>   
+    
+* ***Number and Math Functions***
+  
+  - _```parseInt()``` : converts a string to an integer._
+
+    <sub>parseInt("42") --> 42<sub>
+    
+  - _```parseFloat()``` : converts a string to a floating-point number._
+
+    <sub>parseFloat("4222") --> 4.22<sub>
+    
+  - _```isNaN()``` : checks if a value is NaN._
+
+    <sub>isNaN("abc") --> true<sub>
+    
+  - _```isFinite()``` checks if a value is a finite number._
+
+    <sub>isFinite(20) --> true<sub>
+    
+  - _```Math.round()``` : rounds to the nearest integer._
+
+    <sub>Math.round(5.8) --> 6<sub>
+    
+  - _```Math.floor()``` : rounds down to the neares integer._
+
+    <sub>Math.floor(5.8) --> 5<sub>
+    
+  - _```Math.ceil()``` : rounds up to the nearest integer._
+
+    <sub>Math.ceil(5.2) --> 6<sub>
+    
+  - _```Math.abs()``` : returns the absolute value._
+
+    <sub>Math.abs(-6) --> 6<sub>
+    
+  - _```Math.pow()``` : raises to a power._
+
+    <sub>Math.pow(2, 3) --> 8<sub>
+    
+  - _```Math.sqrt()``` : returns the square root._
+
+    <sub>Math.sqrt(25) --> 5<sub>
+    
+  - _```Math.max()``` : returns the largest value._
+
+    <sub>Math.max(5, 7, 3, 1) --> 7<sub>
+    
+  - _```Math.min()``` : returns the smallest value._
+ 
+    <sub>Math.min(5, 7, 3, 1) --> 1<sub>
+    
+  - _```Math.random()``` : returns a random number between 0 and 1._
+
+    <sub>Math.random() --> 0.20<sub>
+
+* ***String Functions***
+
+  - _```String()``` : converts any value to a string._
+
+    <sub>String(123) --> "123"<sub>
+    
+  - _```toUpperCase()``` : converts a string to uppercase._
+ 
+    <sub>"hello".toUpperCase() --> "HELLO"<sub>
+    
+  - _```toLowerCase()``` : converts a string to lowercase._
+ 
+    <sub>"Hello".toLowerCase() --> "hello"<sub>
+    
+  - _```trim()``` : removes whitespace from both ends of a string._
+ 
+    <sub>"   hey ".trim() --> "hey"<sub>
+    
+  - _```includes()``` : checks if a string contains a substring._
+ 
+    <sub>"JavaScript".includes("Script") --> true<sub>
+    
+  - _```substring()``` : Returns a portion of the string starting from the start index up to but not including the end index (if start > end the method swaps them automatically, also negative values are treated as 0)._
+
+    <sub>"Hello".substring(1, 4) --> "ell"<sub>
+    
+  - _```replace()``` : Replaces the first occurrence of searchValue in the string with newValue._
+ 
+    <sub>"Hello".replace("l", "r") --> "Herlo"<sub>
+    
+  - _```split()``` : splits a string into an array._
+ 
+    <sub>"a,b,c".split(",") --> ["a", "b", "c"]<sub>
+
+* ***Array functions***
+
+  - _```Array.isArray()``` : checks if a value is an array._
+  - _```push()``` : adds elements to the end of an array._
+  - _```pop()``` : removes the last element._
+  - _```shift()``` : removes the first element._
+  - _```unshift()``` : adds elements to the beginning._
+  - _```splice()``` : adds/removes elements at specific index._
+  - _```slice()``` : returns a shallow copy of part of an array._
+  - _```join()``` : joins array elements into a string._
+
+* ***Timing Functions***
+
+  - _```setTimeout()``` : executes a function after a delay._
+  - _```setInterval()``` : repeats a function at regular intervals._
+  - _```clearTimeout()``` : cancels a timeout previously set._
+  - _```clearInterval()``` : cancels an interval previously set._
+    
 ## Hoisting
 
 _In JavaScript, **hoisting** is a behavior where declarations of variables and functions are conceptually moved to the top of their containing scope during the compilation phase. This means that sometimes it's possible to use variables or call functions before their actual line of declaration appears in the source code. However, the exact behavior depends on the type of declaration involved :_
@@ -466,12 +598,56 @@ _**Scope** in JavaScript is the current context of execution. It determines whic
 
    _```example();```_
    
-   _```console.log(localVar);```_ **ReferenceError**
+   _```console.log(localVar);```_ ***ReferenceError***
 
    <sub>The variable is accessible only inside the function where is declared so we'll get a ReferenceError trying to log it outside the function.<sub>
    
  * _**Block Scope** : Applies to **let** and **const** inside blocks {}. These variables are accessible only inside the block._
- * _**Lexical Scope** : Functions access variables from the scope in which they were **defined**, not where they are called._ 
+
+   _```if (true){```_\
+   _``` let blockVar = "Inside block";```_\
+   _``` console.log(blockVar);```_\
+   _```}```_
+
+   _```console.log(blockVar)```_ ***ReferenceError***
+
+   <sub>var does not respect block scope. It is function-scoped or global.<sub>
+   
+ * _**Lexical Scope** : also called **static scope** means that a function can access variables from the scope where it was **defined**, not where it is called._
+
+   _```function outer(){```_\
+   _``` let outerVar = "i'm from outer scope";```_
+
+   _``` function inner(){```_\
+   _```  console.log(outerVar);```_\
+   _```  }```_
+
+   _``` inner();```_\
+   _```}```_
+
+   _```outer();```_
+
+   <sub>inner has access to outerVar because it's defined inside outer, and that's its lexical environment<sub>
+
+_A **Closure** is when a function remembers and can use variables from the place where it was created, even after that outer function has finished running. This is possible because functions in JavaScript **retain a reference** to their lexical environment._
+
+ _```function makeCounter(){```_\
+ _``` let count = 0;```_
+
+ _``` return function(){```_\
+ _```  count++;```_\
+ _```  return count;```_\
+ _``` };```_\
+ _```}```_
+
+ _```const counter1 = makeCounter();```_\
+ _```console.log(counter1());```_ ***1***\
+ _```console.log(counter1());```_ ***2***
+
+ _```const counter2 = makeCounter();```_\
+ _```console.log(counter2());```_ ***1***
+
+ <sub>Each call to makeCounter() creates a new closure with its own count variable<sub>
 
 ## this Keyword
 
