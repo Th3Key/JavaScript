@@ -526,20 +526,49 @@ _Also called **predefined functions**, are standard functions provided by the Ja
  
     <sub>"Hello".replace("l", "r") --> "Herlo"<sub>
     
-  - _```split()``` : splits a string into an array._
+  - _```split()``` : splits a string into an array using a specified separator, and optionally limits the number of splits. If the separator is an empty string, the result is an array of characters; if the separator is not found, the entire string is returned as a single-element array; if the separator is omitted, the result is an array containing the original string as a single element._
  
     <sub>"a,b,c".split(",") --> ["a", "b", "c"]<sub>
 
 * ***Array functions***
 
   - _```Array.isArray()``` : checks if a value is an array._
+ 
+    <sub>Array.isArray([3, 4]) --> true<sub>
+    
   - _```push()``` : adds elements to the end of an array._
+ 
+    <sub>[3, 4].push(5) --> [3, 4, 5]<sub>
+    
   - _```pop()``` : removes the last element._
+ 
+    <sub>[3, 4, 5].pop() --> 5 (returns the removed element)<sub>
+    
   - _```shift()``` : removes the first element._
+ 
+    <sub>[3, 4, 5].shift() --> 3 (returns the removed element)<sub>
+    
   - _```unshift()``` : adds elements to the beginning._
-  - _```splice()``` : adds/removes elements at specific index._
-  - _```slice()``` : returns a shallow copy of part of an array._
-  - _```join()``` : joins array elements into a string._
+ 
+    <sub>[4, 5].unshift(3) --> [3, 4, 5]<sub>
+    
+  - _```splice()``` : changes an array by removing a specified number of elements starting at a given index, and optionally inserting new elements at that position._
+ 
+    <sub>[1, 2, 3].splice(1, 1, "a", "b") -->  [2] (returns the removed element) and changes the array in [1, "a", "b", 3]<sub>
+
+    <sub>[1, 2, 3].splice(2, 0, 4, 5) --> [] cause nothing was removed, anyway the array changes in [1, 2, 3, 4, 5].<sub>
+
+    _So the first parameter is the start index, the second represents how many elements to remove, and the others specify the elements to insert._
+    
+  - _```slice()``` : returns a shallow copy of part of an array from the start index (inclusive) to the end index (exclusive)._
+ 
+    <sub>[1, 2, 3].slice(0, 2) --> [1, 2]<sub>
+    
+  - _```join()``` : joins array elements into a string, separated by a specified separator._
+ 
+    <sub>[1, 2, 3].join("-") --> "1-2-3"<sub>
+
+    _If no separator is provided, elements are joined with a comma by default._
 
 * ***Timing Functions***
 
