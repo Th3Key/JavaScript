@@ -115,19 +115,34 @@ _JavaScript data types are divided into two main categories :_
   
     - _```string```: a **sequence of characters** delimited by double or single quotes (it is possible to insert special characters inside a string by using the escaping character ```\``` )._
   
-    - _```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._\
+    - _```number```: includes both **whole numbers** and **decimals**; in addition to the classic base ten notation, we can represent numbers in **octal** (the number starts with ```0```) and **hexadecimal** notation (the number starts with ```0x```). Any value that goes outside the representable range does not generate an exception but is represented by two special values : **Infinity** and **-Infinity**._
   
       _<sub>Another special numeric value is **NaN** (Not a Number) which indicates an undefined numeric value.<sub>_
   
-  - _```bigint```: used for very **large integers**, beyond the number limit._\
-  - _```boolean```: **True** or **False** values._\
-  - _```undefined```: a variable that has been declared but not given a value._\
-  - _```null```: rapresents an intentional **empty value**._\
+  - _```bigint```: used for very **large integers**, beyond the number limit._
+  - _```boolean```: **True** or **False** values._
+  - _```undefined```: a variable that has been declared but not given a value._
+  - _```null```: rapresents an intentional **empty value**._
   - _```symbol```: creates a unique, unchangeable value, used ad object property keys._
   
 * _**Non-Primitive Types** (Objects) :_
   
   _Complex types like **arrays**, **functions** and **objects** (**mutable** and stored **by reference**)._
+
+### _Template Literals_
+
+_Template literals provide an easy and readable way to create strings with embedded expressions._
+
+_Instead of quotes (```'``` or ```"```) use **backticks `**, and embed expressions inside **${}**._
+
+_```const name = "Bob";```_\
+_```const age = 25;```_
+
+_Traditional concatenation :_\
+_```const message1 = "My name is " + name + " and i am " + age + " years old.";```_
+
+_Using template literals :_\
+_```const message2 = `My name is ${name} and i am ${age} years old.`;```_
 
 ## _Type Conversion_
 
@@ -372,7 +387,7 @@ _```}```_
 
 _```showColors("red", "blue", "green", "yellow", "purple");```_
 
-### Return Statement
+### _Return Statement_
 
 _The **return** statement is used in functions to send a value back to the place where the function was called. When a function reaches a return statement, it stops executing and returns the specified value._\
 _Without a return statement, a function returns **undefined** by default._
@@ -386,7 +401,7 @@ _```console.log(result);```_
 
 _<sub>The multiply function calculates the product of two numbers and returns the result. The returned value is then stored in the variable result and printed to the console.<sub>_
 
-### Arrow Functions
+### _Arrow Functions_
 
 _Arrow functions are a shorter syntax for writing functions in JavaScript, they are especially useful for writing concise, anonymous functions._
 
@@ -416,7 +431,21 @@ _If there are **no parameters**, empty parentheses are used :_
 
 _Arrow Functions lack their own **this** (which is inherited from the surrounding scope) and **arguments** objects (using rest parameter is used to handle arguments), they also cannot be used as constructors with **new**._ 
 
-### Built-in Functions
+### _Function Expression_
+
+_Is a function defined as part of an expression. Essentially, the function (**anonymous** or **named**) is assigned to a variable or constant._
+
+ _```const functionName = function() {```_\
+ _``` ...body...```_\
+ _```};```_
+
+ _Or with a named function expression._
+
+ _```const p = function positive(n) {```_\
+ _``` return n > 0 ? true : false;```_\
+ _```};```_
+ 
+### _Built-in Functions_
 
 _Also called **predefined functions**, are standard functions provided by the JavaScript environment to perform common tasks. These functions are available by default and do not require manual definition._
 
@@ -588,7 +617,7 @@ _Also called **predefined functions**, are standard functions provided by the Ja
  
     _<sub>clearInterval(intervalID)<sub>_
     
-## Hoisting
+## _Hoisting_
 
 _In JavaScript, **hoisting** is a behavior where declarations of variables and functions are conceptually moved to the top of their containing scope during the compilation phase. This means that sometimes it's possible to use variables or call functions before their actual line of declaration appears in the source code. However, the exact behavior depends on the type of declaration involved :_
 
@@ -689,7 +718,7 @@ _A **Closure** is when a function remembers and can use variables from the place
 
  _<sub>Each call to makeCounter() creates a new closure with its own count variable<sub>_
 
-## this Keyword
+## _this Keyword_
 
 _In JavaScript, **this** is a special keyword that refers to the context in which a function is executed. The value of **this** depends on how a function is called, not where it's defined. It can refer to different things depending on the situation :_
 
@@ -732,13 +761,13 @@ _In JavaScript, **this** is a special keyword that refers to the context in whic
 
     _<sub>The output will be "Fido"<sub>_
 
-## Objects
+## _Objects_
 
 _An object is a data structure that represents a complex entity made up of a collection of **properties** and **methods**. Properties are values associated with names (also called keys), while methods are functions attached to the object._\
 _In other words, an object groups together heterogeneous data (such as strings, numbers, arrays, other objects) and related functionality into a single entity with its own identity._\
 _Typically, objects are used to model real-world or abstract things like a person, an order or even more technical concepts._
 
-### Properties (Data)
+### _Properties (Data)_
 
 _An object's properties are **name-value pairs**, where the name is a string (the key) and the value can be any data type._
 
@@ -750,7 +779,7 @@ _An object's properties are **name-value pairs**, where the name is a string (th
 
 _<sub>Here, name, age, and city are **properties**.<sub>_
 
-### Methods (Functionality)
+### _Methods (Functionality)_
 
 _A method is a function associated with an object. Methods define behaviors or actions that the object can perform or that operate on the object's data._
 
@@ -766,7 +795,7 @@ _```person.greet();``` Output : Hello, my name is Simon._
 
 _<sub>Here, greet is a **method** (a function defined as a property of the person object). The keyword **this** refers to the object itself.<sub>_
 
-### Create Objects
+### _Create Objects_
 
 _JS offers several ways to create objects :_
 
@@ -829,4 +858,26 @@ _JS offers several ways to create objects :_
   _``` }```_\
   _```}```_
 
-  _A class is a blueprint for creating objects where the constructor method automatically initializes properties, and methods can be defined cleanly without repeating the **function** keyword.
+  _A class is a blueprint for creating objects where the constructor method automatically initializes properties, and methods can be defined cleanly without repeating the **function** keyword._
+
+### _new Keyword_
+
+_The new keyword is used to create a new object instance from a constructor function or a class. It automates the creation process by :_
+
+* _Creating an empty object;_
+* _Setting up the prototype chain;_
+* _Binding **this** inside the constructor to the new object;_
+* _Returning the newly created object._
+
+_```function Person(name) {```_\
+_``` this.name = name;```_\
+_```}```_
+
+_```const p = new Person("Alice");```_\
+_```console.log(p.name);```_
+
+<sub>Without **new**, the function would not create a new object correctly.<sub>
+
+### _Prototype Chain and Inheritance_
+
+_In JavaScript, **inheritance** is primarily achieved through the **prototype chain**. Every object in JS has an internal link to another object called its **prototype**. This chain continues until it reaches ```Object.prototype```, whose prototype is **null**._
