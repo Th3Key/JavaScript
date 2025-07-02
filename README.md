@@ -816,4 +816,17 @@ _JS offers several ways to create objects :_
 
   <sub>Using **new** with the constructor function creates a new object where **this** refers to the new instance.<sub>
   
-* _**ES6 Classes** : introduced 
+* _**ES6 Classes** : introduced in **ES6** (**ECMAScript 2015**), classes provide a clearer, more concise syntax for creating objects with shared properties and methods._
+
+  _```class Person {```_\
+  _``` costructor(name, age) {```_\
+  _```  this.name = name;```_\
+  _```  this.age = age;```_\
+  _``` }```_
+
+  _``` greet() {```_\
+  _```  console.log(`Hi, i'm ${this.name}`);```_\
+  _``` }```_\
+  _```}```_
+
+  _A class is a blueprint for creating objects where the constructor method automatically initializes properties, and methods can be defined cleanly without repeating the **function** keyword.
