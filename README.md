@@ -572,10 +572,21 @@ _Also called **predefined functions**, are standard functions provided by the Ja
 
 * ***Timing Functions***
 
-  - _```setTimeout()``` : executes a function after a delay._
-  - _```setInterval()``` : repeats a function at regular intervals._
-  - _```clearTimeout()``` : cancels a timeout previously set._
-  - _```clearInterval()``` : cancels an interval previously set._
+  - _```setTimeout()``` : executes a function after a delay. It returns an **ID** that identifies the timer._
+
+    <sub>const timerID = setTimeout(() => {...}, 1000)<sub>
+    
+  - _```setInterval()``` : repeats a function at regular intervals. It returns an **ID** that identifies the interval._
+ 
+    <sub>const intervalID = setInterval(() => {...}, 1000)<sub>
+    
+  - _```clearTimeout()``` : cancels a timeout previously set with **setTimeout()** using its **ID**._
+ 
+    <sub>clearTimeout(timerID)<sub>
+    
+  - _```clearInterval()``` : cancels an interval previously set with **setInterval()** using its **ID**._
+ 
+    <sub>clearInterval(intervalID)<sub>
     
 ## Hoisting
 
