@@ -424,149 +424,149 @@ _Also called **predefined functions**, are standard functions provided by the Ja
   
   - _```console.log()``` : outputs a message to the console._
     
-    <sub>console.log("Message")<sub>
+    _<sub>console.log("Message")<sub>_
     
   - _```alert()``` : shows an alert dialog._
 
-    <sub>alert("Message")<sub>
+    _<sub>alert("Message")<sub>_
     
   - _```confirm()``` : shows a confirmation dialog._
 
-    <sub>confirm("Are you sure?")<sub>
+    _<sub>confirm("Are you sure?")<sub>_
     
   - _```prompt()``` : shows an input dialog._
 
-    <sub>prompt("Enter your name")<sub>
+    _<sub>prompt("Enter your name")<sub>_
     
   - _```typeof()``` : returns the type of a variable._
 
-    <sub>typeof 123 --> "number"<sub>   
+    _<sub>typeof 123 --> "number"<sub>_   
     
 * ***Number and Math Functions***
   
   - _```parseInt()``` : converts a string to an integer._
 
-    <sub>parseInt("42") --> 42<sub>
+    _<sub>parseInt("42") --> 42<sub>_
     
   - _```parseFloat()``` : converts a string to a floating-point number._
 
-    <sub>parseFloat("4222") --> 4.22<sub>
+    _<sub>parseFloat("4222") --> 4.22<sub>_
     
   - _```isNaN()``` : checks if a value is NaN._
 
-    <sub>isNaN("abc") --> true<sub>
+    _<sub>isNaN("abc") --> true<sub>_
     
   - _```isFinite()``` checks if a value is a finite number._
 
-    <sub>isFinite(20) --> true<sub>
+    _<sub>isFinite(20) --> true<sub>_
     
   - _```Math.round()``` : rounds to the nearest integer._
 
-    <sub>Math.round(5.8) --> 6<sub>
+    _<sub>Math.round(5.8) --> 6<sub>_
     
   - _```Math.floor()``` : rounds down to the neares integer._
 
-    <sub>Math.floor(5.8) --> 5<sub>
+    _<sub>Math.floor(5.8) --> 5<sub>_
     
   - _```Math.ceil()``` : rounds up to the nearest integer._
 
-    <sub>Math.ceil(5.2) --> 6<sub>
+    _<sub>Math.ceil(5.2) --> 6<sub>_
     
   - _```Math.abs()``` : returns the absolute value._
 
-    <sub>Math.abs(-6) --> 6<sub>
+    _<sub>Math.abs(-6) --> 6<sub>_
     
   - _```Math.pow()``` : raises to a power._
 
-    <sub>Math.pow(2, 3) --> 8<sub>
+    _<sub>Math.pow(2, 3) --> 8<sub>_
     
   - _```Math.sqrt()``` : returns the square root._
 
-    <sub>Math.sqrt(25) --> 5<sub>
+    _<sub>Math.sqrt(25) --> 5<sub>_
     
   - _```Math.max()``` : returns the largest value._
 
-    <sub>Math.max(5, 7, 3, 1) --> 7<sub>
+    _<sub>Math.max(5, 7, 3, 1) --> 7<sub>_
     
   - _```Math.min()``` : returns the smallest value._
  
-    <sub>Math.min(5, 7, 3, 1) --> 1<sub>
+    _<sub>Math.min(5, 7, 3, 1) --> 1<sub>_
     
   - _```Math.random()``` : returns a random number between 0 and 1._
 
-    <sub>Math.random() --> 0.20<sub>
+    _<sub>Math.random() --> 0.20<sub>_
 
 * ***String Functions***
 
   - _```String()``` : converts any value to a string._
 
-    <sub>String(123) --> "123"<sub>
+    _<sub>String(123) --> "123"<sub>_
     
   - _```toUpperCase()``` : converts a string to uppercase._
  
-    <sub>"hello".toUpperCase() --> "HELLO"<sub>
+    _<sub>"hello".toUpperCase() --> "HELLO"<sub>_
     
   - _```toLowerCase()``` : converts a string to lowercase._
  
-    <sub>"Hello".toLowerCase() --> "hello"<sub>
+    _<sub>"Hello".toLowerCase() --> "hello"<sub>_
     
   - _```trim()``` : removes whitespace from both ends of a string._
  
-    <sub>"   hey ".trim() --> "hey"<sub>
+    _<sub>"   hey ".trim() --> "hey"<sub>_
     
   - _```includes()``` : checks if a string contains a substring._
  
-    <sub>"JavaScript".includes("Script") --> true<sub>
+    _<sub>"JavaScript".includes("Script") --> true<sub>_
     
   - _```substring()``` : Returns a portion of the string starting from the start index up to but not including the end index (if start > end the method swaps them automatically, also negative values are treated as 0)._
 
-    <sub>"Hello".substring(1, 4) --> "ell"<sub>
+    _<sub>"Hello".substring(1, 4) --> "ell"<sub>_
     
   - _```replace()``` : Replaces the first occurrence of searchValue in the string with newValue._
  
-    <sub>"Hello".replace("l", "r") --> "Herlo"<sub>
+    _<sub>"Hello".replace("l", "r") --> "Herlo"<sub>_
     
   - _```split()``` : splits a string into an array using a specified separator, and optionally limits the number of splits. If the separator is an empty string, the result is an array of characters; if the separator is not found, the entire string is returned as a single-element array; if the separator is omitted, the result is an array containing the original string as a single element._
  
-    <sub>"a,b,c".split(",") --> ["a", "b", "c"]<sub>
+    _<sub>"a,b,c".split(",") --> ["a", "b", "c"]<sub>_
 
 * ***Array functions***
 
   - _```Array.isArray()``` : checks if a value is an array._
  
-    <sub>Array.isArray([3, 4]) --> true<sub>
+    _<sub>Array.isArray([3, 4]) --> true<sub>_
     
   - _```push()``` : adds elements to the end of an array._
  
-    <sub>[3, 4].push(5) --> [3, 4, 5]<sub>
+    _<sub>[3, 4].push(5) --> [3, 4, 5]<sub>_
     
   - _```pop()``` : removes the last element._
  
-    <sub>[3, 4, 5].pop() --> 5 (returns the removed element)<sub>
+    _<sub>[3, 4, 5].pop() --> 5 (returns the removed element)<sub>_
     
   - _```shift()``` : removes the first element._
  
-    <sub>[3, 4, 5].shift() --> 3 (returns the removed element)<sub>
+    _<sub>[3, 4, 5].shift() --> 3 (returns the removed element)<sub>_
     
   - _```unshift()``` : adds elements to the beginning._
  
-    <sub>[4, 5].unshift(3) --> [3, 4, 5]<sub>
+    _<sub>[4, 5].unshift(3) --> [3, 4, 5]<sub>_
     
   - _```splice()``` : changes an array by removing a specified number of elements starting at a given index, and optionally inserting new elements at that position._
  
-    <sub>[1, 2, 3].splice(1, 1, "a", "b") -->  [2] (returns the removed element) and changes the array in [1, "a", "b", 3]<sub>
+    _<sub>[1, 2, 3].splice(1, 1, "a", "b") -->  [2] (returns the removed element) and changes the array in [1, "a", "b", 3]<sub>_
 
-    <sub>[1, 2, 3].splice(2, 0, 4, 5) --> [] cause nothing was removed, anyway the array changes in [1, 2, 3, 4, 5].<sub>
+    _<sub>[1, 2, 3].splice(2, 0, 4, 5) --> [] cause nothing was removed, anyway the array changes in [1, 2, 3, 4, 5].<sub>_
 
     _So the first parameter is the start index, the second represents how many elements to remove, and the others specify the elements to insert._
     
   - _```slice()``` : returns a shallow copy of part of an array from the start index (inclusive) to the end index (exclusive)._
  
-    <sub>[1, 2, 3].slice(0, 2) --> [1, 2]<sub>
+    _<sub>[1, 2, 3].slice(0, 2) --> [1, 2]<sub>_
     
   - _```join()``` : joins array elements into a string, separated by a specified separator._
  
-    <sub>[1, 2, 3].join("-") --> "1-2-3"<sub>
+    _<sub>[1, 2, 3].join("-") --> "1-2-3"<sub>_
 
     _If no separator is provided, elements are joined with a comma by default._
 
@@ -574,19 +574,19 @@ _Also called **predefined functions**, are standard functions provided by the Ja
 
   - _```setTimeout()``` : executes a function after a delay. It returns an **ID** that identifies the timer._
 
-    <sub>const timerID = setTimeout(() => {...}, 1000)<sub>
+    _<sub>const timerID = setTimeout(() => {...}, 1000)<sub>_
     
   - _```setInterval()``` : repeats a function at regular intervals. It returns an **ID** that identifies the interval._
  
-    <sub>const intervalID = setInterval(() => {...}, 1000)<sub>
+    _<sub>const intervalID = setInterval(() => {...}, 1000)<sub>_
     
   - _```clearTimeout()``` : cancels a timeout previously set with **setTimeout()** using its **ID**._
  
-    <sub>clearTimeout(timerID)<sub>
+    _<sub>clearTimeout(timerID)<sub>_
     
   - _```clearInterval()``` : cancels an interval previously set with **setInterval()** using its **ID**._
  
-    <sub>clearInterval(intervalID)<sub>
+    _<sub>clearInterval(intervalID)<sub>_
     
 ## Hoisting
 
@@ -627,7 +627,7 @@ _**Scope** in JavaScript is the current context of execution. It determines whic
    _```show();```_\
    _```console.log(globalVar);```_
 
-   <sub>globalVar is accessible from anywhere.<sub>
+   _<sub>globalVar is accessible from **anywhere**.<sub>_
    
  * _**Function Scope** : Variables declared with **var**, **let**, or **const** inside a function are accessible only within that function._
 
@@ -640,7 +640,7 @@ _**Scope** in JavaScript is the current context of execution. It determines whic
    
    _```console.log(localVar);```_ ***ReferenceError***
 
-   <sub>The variable is accessible only inside the function where is declared so we'll get a ReferenceError trying to log it outside the function.<sub>
+   _<sub>The variable is accessible only inside the function where is declared so we'll get a **ReferenceError** trying to log it outside the function.<sub>_
    
  * _**Block Scope** : Applies to **let** and **const** inside blocks {}. These variables are accessible only inside the block._
 
@@ -651,7 +651,7 @@ _**Scope** in JavaScript is the current context of execution. It determines whic
 
    _```console.log(blockVar)```_ ***ReferenceError***
 
-   <sub>var does not respect block scope. It is function-scoped or global.<sub>
+   _<sub>var does not respect block scope. It is **function-scoped** or **global**.<sub>_
    
  * _**Lexical Scope** : also called **static scope** means that a function can access variables from the scope where it was **defined**, not where it is called._
 
@@ -667,7 +667,7 @@ _**Scope** in JavaScript is the current context of execution. It determines whic
 
    _```outer();```_
 
-   <sub>inner has access to outerVar because it's defined inside outer, and that's its lexical environment<sub>
+   _<sub>inner has access to outerVar because it's defined inside outer, and that's its lexical environment<sub>_
 
 _A **Closure** is when a function remembers and can use variables from the place where it was created, even after that outer function has finished running. This is possible because functions in JavaScript **retain a reference** to their lexical environment._
 
@@ -687,7 +687,7 @@ _A **Closure** is when a function remembers and can use variables from the place
  _```const counter2 = makeCounter();```_\
  _```console.log(counter2());```_ ***1***
 
- <sub>Each call to makeCounter() creates a new closure with its own count variable<sub>
+ _<sub>Each call to makeCounter() creates a new closure with its own count variable<sub>_
 
 ## this Keyword
 
@@ -731,3 +731,89 @@ _In JavaScript, **this** is a special keyword that refers to the context in whic
     _```console.log(dog.name);```_
 
     _<sub>The output will be "Fido"<sub>_
+
+## Objects
+
+_An object is a data structure that represents a complex entity made up of a collection of **properties** and **methods**. Properties are values associated with names (also called keys), while methods are functions attached to the object._\
+_In other words, an object groups together heterogeneous data (such as strings, numbers, arrays, other objects) and related functionality into a single entity with its own identity._\
+_Typically, objects are used to model real-world or abstract things like a person, an order or even more technical concepts._
+
+### Properties (Data)
+
+_An object's properties are **name-value pairs**, where the name is a string (the key) and the value can be any data type._
+
+ _```const person = {```_\
+ _``` name : "Simon",```_\
+ _``` age : 20,```_\
+ _``` city : "Rome"```_\
+ _```};```_
+
+_<sub>Here, name, age, and city are **properties**.<sub>_
+
+### Methods (Functionality)
+
+_A method is a function associated with an object. Methods define behaviors or actions that the object can perform or that operate on the object's data._
+
+_```const person = {```_\
+_``` name : "Simon",```_\
+_``` age : 20,```_\
+_``` greet : function() {```_\
+_```  console.log("Hello, my name is " + this.name);```_\
+_``` }```_\
+_```};```_
+
+_```person.greet();``` Output : Hello, my name is Simon._
+
+_<sub>Here, greet is a **method** (a function defined as a property of the person object). The keyword **this** refers to the object itself.<sub>_
+
+### Create Objects
+
+_JS offers several ways to create objects :_
+
+ * _**Object Literal Syntax** : the simplest and most common way to create an object. An object is defined directly with curly braces **{}**, specifying **key-value pairs** inside._
+
+   _```const person = {```_\
+   _``` name : "Simon",```_\
+   _``` age : 20,```_\
+   _``` greet : function() {```_\
+   _```  console.log("Hi, i'm " + this.name);```_\
+   _``` }```_\
+   _```};```_
+
+   _After creating the object it's possible to access or modify properties and call methods._
+
+   _```console.log(person.name);``` output : Simon_\
+   _```person.age = 21;``` modify the age property_\
+   _```person.greet();``` output : Hi, i'm Simon_
+
+* _**new Object()** : create an empty object with the **Object** constructor and then add properties later._
+
+  _```const car = new Object();```_\
+  _```car.make = "Toyota";```_\
+  _```car.model = "Corolla";```_\
+  _```car.year = 2020;```_\
+  _```car.getInfo = function() {```_\
+  _``` return this.make + " " + this.model + " (" + this.year + ")";```_\
+  _```};```
+
+  _```console.log(car.getInfo());``` output : Toyota Corolla (2020)_
+
+* _**Costructor Functions** : used to create multiple objects with the same structure._
+
+  _```function Person(name, age) {```_\
+  _``` this.name = name;```_\
+  _``` this.age = age;```_\
+  _``` this.greet = function() {```_\
+  _```  console.log("Hello, my name is " + this.name);```_\
+  _``` };```_\
+  _```}```_
+
+  _```const person1 = new Person("Bob", 25);```_\
+  _```const person2 = new Person("Carol", 24);```_\
+
+  _```person1.greet();``` output : Hello, my name is Bob._
+  _```person2.greet();``` output : Hello, my name is Carol._
+
+  <sub>Using **new** with the constructor function creates a new object where **this** refers to the new instance.<sub>
+  
+* _**ES6 Classes** : introduced 
