@@ -823,7 +823,7 @@ _JS offers several ways to create objects :_
   _```car.year = 2020;```_\
   _```car.getInfo = function() {```_\
   _``` return this.make + " " + this.model + " (" + this.year + ")";```_\
-  _```};```
+  _```};```_
 
   _```console.log(car.getInfo());``` output : Toyota Corolla (2020)_
 
@@ -848,7 +848,7 @@ _JS offers several ways to create objects :_
 * _**ES6 Classes** : introduced in **ES6** (**ECMAScript 2015**), classes provide a clearer, more concise syntax for creating objects with shared properties and methods._
 
   _```class Person {```_\
-  _``` costructor(name, age) {```_\
+  _``` constructor(name, age) {```_\
   _```  this.name = name;```_\
   _```  this.age = age;```_\
   _``` }```_
@@ -858,16 +858,21 @@ _JS offers several ways to create objects :_
   _``` }```_\
   _```}```_
 
+  _```const person1 = new Person("Anna", 30);```_
+  _```person1.greet();```_
+
   _A class is a blueprint for creating objects where the constructor method automatically initializes properties, and methods can be defined cleanly without repeating the **function** keyword._
 
-### _new Keyword_
+ <sub>Using **new** with a class creates a new instance. The constructor sets initial properties, and class methods are shared via the prototype.<sub>
+ 
+## _new Keyword_
 
-_The new keyword is used to create a new object instance from a constructor function or a class. It automates the creation process by :_
+_The new keyword is used to create a new object instance from a constructor function or a class. It automates several steps behind the scenes to correctly set up the new object :_
 
-* _Creating an empty object;_
-* _Setting up the prototype chain;_
-* _Binding **this** inside the constructor to the new object;_
-* _Returning the newly created object._
+* _Creates an empty object;_
+* _Sets up the prototype chain : sets **[[Prototype]]** of the new object to the constructor's ```.prototype```._
+* _Binds **this** to the new object inside the constructor function;_
+* _Returns the newly created object (unless the constructor explicitly returns a different object)._
 
 _```function Person(name) {```_\
 _``` this.name = name;```_\
@@ -876,8 +881,14 @@ _```}```_
 _```const p = new Person("Alice");```_\
 _```console.log(p.name);```_
 
-<sub>Without **new**, the function would not create a new object correctly.<sub>
+<sub>Without **new**, the constructor function behaves like a regular function, and **this** will refer to the global object (**window** in browsers) or **undefined** in strict mode.<sub>
 
-### _Prototype Chain and Inheritance_
+## _Prototype Chain and Inheritance_
+ 
+_In JavaScript, **inheritance** is primarily achieved through the **prototype chain**. Every object in JS has an internal property called **[[Prototype]]**, which references another object known as its **prototype**, this link between objects forms what is known as the **prototype chain**._
 
-_In JavaScript, **inheritance** is primarily achieved through the **prototype chain**. Every object in JS has an internal link to another object called its **prototype**. This chain continues until it reaches ```Object.prototype```, whose prototype is **null**._
+_When a property or method is accessed on an object, JS first looks for it on the object itself. If it's not found, the engine traverses up the prototype chain, checking each linked prototype until it either finds the property or reaches the end of the chain._
+
+_The **prototype chain** always ends with ```null```, which means there are no further prototypes to follow. At the top of the chain is usually ```Object.prototype```, whose own prototype is ```null```. Once ```null``` is reached, JS stops searching, and the property is considered **undefined** if not found earlier in the chain._
+
+_This approach differs from classical inheritance models found in languages like Java or C++, where classes are the primary unit of inheritance. In JS, inheritance is **object-based**, meaning that objects inherit directly from other objects through this dynamic prototype mechanism._\
