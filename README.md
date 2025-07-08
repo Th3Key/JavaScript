@@ -850,9 +850,9 @@ _JS offers several ways to create objects :_
   _```}```_
 
   _```const person1 = new Person("Bob", 25);```_\
-  _```const person2 = new Person("Carol", 24);```_\
+  _```const person2 = new Person("Carol", 24);```_
 
-  _```person1.greet();``` output : Hello, my name is Bob._
+  _```person1.greet();``` output : Hello, my name is Bob._\
   _```person2.greet();``` output : Hello, my name is Carol._
 
   <sub>Using **new** with the constructor function creates a new object where **this** refers to the new instance.<sub>
@@ -870,7 +870,7 @@ _JS offers several ways to create objects :_
   _``` }```_\
   _```}```_
 
-  _```const person1 = new Person("Anna", 30);```_
+  _```const person1 = new Person("Anna", 30);```_\
   _```person1.greet();```_
 
   _A class is a blueprint for creating objects where the constructor method automatically initializes properties, and methods can be defined cleanly without repeating the **function** keyword._
@@ -898,7 +898,7 @@ _All JavaScript objects inherit from **Object.prototype** by default. This inher
 
   _**Array behavior**_
 
-  _For arrays, ```toString()``` returns a comma-separated string of elements.
+  _For arrays, ```toString()``` returns a comma-separated string of elements._
 
   <sub>Internally, arrays override the default ```toString()``` with their own implementation.<sub>
 
@@ -910,7 +910,7 @@ _All JavaScript objects inherit from **Object.prototype** by default. This inher
   _``` value : 100,```_\
   _``` valueOf() {```_\
   _```  return this.value;```_\
-  _``` }```_
+  _``` }```_\
   _```};```_
 
   <sub>By default, objects return themselves. Custom implementation is required to convert objects to primitive values.<sub>
@@ -928,7 +928,7 @@ _All JavaScript objects inherit from **Object.prototype** by default. This inher
 
   _```console.log(Animal.prototype.isPrototypeOf(dog));``` output : true_
 
-* _```propertyIsEnumerable(prop)``` : checks if a property is a direct property of the object and if it is enumerable/iterable (visible in **for...in** loops or **Object.keys**).
+* _```propertyIsEnumerable(prop)``` : checks if a property is a direct property of the object and if it is enumerable/iterable (visible in **for...in** loops or **Object.keys**)._
 
   _```const obj = {a : 1};```_\
   _```console.log(obj.propertyIsEnumerable("a"));``` output : true_\
@@ -966,7 +966,7 @@ _When a function is used as a **constructor** (with the ```new``` keyword), its 
  _``` this.name = name;```_\
  _```}```_
 
-<sub>```Animal``` is a **constructor** function.<sub>
+<sub>```Animal``` is a **constructor** function.<sub>\
 <sub>**Animal.prototype** is an object that will be assigned as the **[[Prototype]]** of any object created using ```new Animal()```.<sub>
 
 _```const dog = new Animal("Rex");```_\
