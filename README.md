@@ -123,7 +123,7 @@ _JavaScript data types are divided into two main categories :_
   - _```boolean```: **True** or **False** values._
   - _```undefined```: a variable that has been declared but not given a value._
   - _```null```: rapresents an intentional **empty value**._
-  - _```symbol```: creates a unique, unchangeable value, used ad object property keys._
+  - _```symbol```: creates a unique, unchangeable value, used as object property keys._
   
 * _**Non-Primitive Types** (Objects) :_
   
@@ -308,7 +308,7 @@ _Loops execute a block of code multiple times, based on a fixed number of iterat
   _```}```_
 
   _<sub>**object** refers to the target object whose properties are being iterated.<sub>_\
-  _<sub>**key** represents each property name (as a string) on the object.<sub>_\
+  _<sub>**key** represents each property name (as a string) on the object.<sub>_
 
 _JavaScript offers two important statements to control the flow inside loops :_
 
