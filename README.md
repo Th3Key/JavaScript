@@ -599,6 +599,40 @@ _Also called **predefined functions**, are standard functions provided by the Ja
 
     _If no separator is provided, elements are joined with a comma by default._
 
+  - _```indexOf(element)``` : returns the index of the **first occurrence** of **element** in the array, or -1 if not found._
+ 
+    _<sub>[1, 3, 9, 4].indexOf(9); --> 2<sub>_
+
+  - _```includes(element)``` : returns **true** if the element exists in the array, otherwise **false**._
+ 
+    _<sub>[1, 4, 2, 5].includes(2); --> true<sub>_
+
+  - _```forEach(callback)``` : executes the **callback** function on each element of the array (returns nothing)._
+ 
+    _<sub>arr.forEach(el => console.log(el));<sub>_
+
+  - _```map(callback)``` : creates a new array by applying the **callback** function to every element._
+ 
+    _<sub>let squares = arr.map(x => x * x);<sub>_
+
+  - _```filter(callback)``` : creates a new array with elements that pass the test implemented by **callback**._
+ 
+    _<sub>let bigNumbers = arr.filter(x => x > 5);<sub>_
+
+  - _```reduce(callback, initialValue)``` : processes an array and reduces it to a single value by applying a **callback function** on each element, one by one._
+ 
+    _<sub>array.reduce((accumulator, currentValue, index, array) => { }, initialValue);<sub>_
+
+    _**Accumulator** : the result of the previous callback iteration (or **initialValue** on the first run);_\
+    _**CurrentValue** : the current element being processed;_\
+    _**Index** (optional) : the index of the current element;_\
+    _**Array** (optional) : the array on which **reduce** is called;_\
+    _**InitialValue** : the starting value for the accumulator._
+
+    _<sub>const numbers = [1, 2, 3, 4];<sub>_\
+    _<sub>const sum = numbers.reduce((acc, curr) => acc + curr, 0);<sub>_\
+    _<sub>console.log(sum); output : 10<sub>_
+
 * ***Timing Functions***
 
   - _```setTimeout()``` : executes a function after a delay. It returns an **ID** that identifies the timer._
@@ -944,7 +978,30 @@ _All JavaScript objects inherit from **Object.prototype** by default. This inher
   _```const myCar = new Car("Toyota", "Corolla");```_
 
   _```console.log(myCar.constructor === Car );``` output : true_
-  
+
+## _Autoboxing_
+
+_JavaScript provides built-in object types that correspond to primitive data types :_
+
+ * **String**
+ * **Number**
+ * **Boolean**
+   
+_Autoboxing is the automatic process by which JavaScript wraps primitive values (like strings, numbers, and booleans) into their corresponding object types when a method or a property is accessed._
+
+_Even though primitive values are **not objects**, JS allows them to behave like objects temporarily by internally wrapping them with a constructor object (```String```, ```Number```, or ```Boolean```)._
+
+_```const message = "hello";```_\
+_```console.log(message.length);``` output : 5_\
+_```console.log(message.toUpperCase());``` output : "HELLO"_\
+
+_Behind the scenes, JS internally creates a temporary **String** object wrapper, calls the method, and then discards it :_
+
+_```new String("hello").length;```_\
+_```new String("hello").toUpperCase();```_
+
+<sub>The original primitive remains unchanged.<sub>
+
 ## _new Keyword_
 
 _The new keyword is used to create a new object instance from a constructor function or a class. It automates several steps behind the scenes to correctly set up the new object :_
@@ -994,4 +1051,4 @@ _When a property or method is accessed on an object, JS first looks for it on th
 
 _The **prototype chain** always ends with ```null```, which means there are no further prototypes to follow. At the top of the chain is usually ```Object.prototype```, whose own prototype is ```null```. Once ```null``` is reached, JS stops searching, and the property is considered **undefined** if not found earlier in the chain._
 
-_This approach differs from classical inheritance models found in languages like Java or C++, where classes are the primary unit of inheritance. In JS, inheritance is **object-based**, meaning that objects inherit directly from other objects through this dynamic prototype mechanism._\
+_This approach differs from classical inheritance models found in languages like Java or C++, where classes are the primary unit of inheritance. In JS, inheritance is **object-based**, meaning that objects inherit directly from other objects through this dynamic prototype mechanism._
