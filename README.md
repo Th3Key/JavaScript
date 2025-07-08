@@ -877,7 +877,7 @@ _JS offers several ways to create objects :_
 
  <sub>Using **new** with a class creates a new instance. The constructor sets initial properties, and class methods are shared via the prototype.<sub>
 
-## Shared Methods in All Objects
+### Shared Methods in All Objects
 
 _All JavaScript objects inherit from **Object.prototype** by default. This inheritance provides a set of core methods that are available on all standard objects :_
 
@@ -934,7 +934,16 @@ _All JavaScript objects inherit from **Object.prototype** by default. This inher
   _```console.log(obj.propertyIsEnumerable("a"));``` output : true_\
   _```console.log(obj.propertyIsEnumerable("toString"));``` output : false_
   
+* _```constructor``` : references the function (or class) used to construct the object instance. It is automatically set on every object created via a constructor function or class, and points to the original constructor that created the instance._
 
+  _```function Car(make, model) {```_\
+  _``` this.make = make;```_\
+  _``` this.model = model;```_\
+  _```}```_
+
+  _```const myCar = new Car("Toyota", "Corolla");```_
+
+  _```console.log(myCar.constructor === Car );``` output : true_
   
 ## _new Keyword_
 
@@ -966,7 +975,8 @@ _When a function is used as a **constructor** (with the ```new``` keyword), its 
  _``` this.name = name;```_\
  _```}```_
 
-<sub>```Animal``` is a **constructor** function.<sub>\
+<sub>```Animal``` is a **constructor** function.<sub>
+
 <sub>**Animal.prototype** is an object that will be assigned as the **[[Prototype]]** of any object created using ```new Animal()```.<sub>
 
 _```const dog = new Animal("Rex");```_\
