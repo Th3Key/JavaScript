@@ -767,6 +767,12 @@ _An object is a data structure that represents a complex entity made up of a col
 _In other words, an object groups together heterogeneous data (such as strings, numbers, arrays, other objects) and related functionality into a single entity with its own identity._\
 _Typically, objects are used to model real-world or abstract things like a person, an order or even more technical concepts._
 
+_In JS, objects are **dynamic by nature**, meaning it's possible to add new properties at any time simply by assigning them using dot notation or bracket notation. There's no need to predefine all properties when the object is created._
+
+_```const person = {};```_\
+_```person.name = "Alice";```_\
+_```person["city"] = "London";```_
+
 ### _Properties (Data)_
 
 _An object's properties are **name-value pairs**, where the name is a string (the key) and the value can be any data type._
@@ -815,7 +821,13 @@ _JS offers several ways to create objects :_
    _```person.age = 21;``` modify the age property_\
    _```person.greet();``` output : Hi, i'm Simon_
 
-* _**new Object()** : create an empty object with the **Object** constructor and then add properties later._
+   _It's also possible to create an empty object and then populate it :_
+
+   _```const person = {};```_\
+   _```person.firstName = "Mario";```_\
+   _```person.lastName = "Rossi";```_
+
+* _**new Object()** : In JS, **Object** is a **function** (specifically, a constructor function) used to create plain objects. The objects it creates, like all objects in JS, inherit from **Object.prototype**, which makes **Object** the base of almost all structures in the language._
 
   _```const car = new Object();```_\
   _```car.make = "Toyota";```_\
@@ -864,7 +876,66 @@ _JS offers several ways to create objects :_
   _A class is a blueprint for creating objects where the constructor method automatically initializes properties, and methods can be defined cleanly without repeating the **function** keyword._
 
  <sub>Using **new** with a class creates a new instance. The constructor sets initial properties, and class methods are shared via the prototype.<sub>
- 
+
+## Shared Methods in All Objects
+
+_All JavaScript objects inherit from **Object.prototype** by default. This inheritance provides a set of core methods that are available on all standard objects :_
+
+* _```toString()``` : returns a string representation of the object. Automatically called when the object is used in a string context._
+
+  _```const obj = {};```_\
+  _```console.log(obj.toString());``` output : "[Object Object]"_
+
+  _**Custom override**_
+
+  _```const user = {```_\
+  _``` name : "Leo",```_\
+  _``` toString() {```_\
+  _```  return `User : ${this.name}`;```_\
+  _``` }```_\
+  _```};```_\
+  _```console.log(user.toString());``` output : "User : Leo"_
+
+  _**Array behavior**_
+
+  _For arrays, ```toString()``` returns a comma-separated string of elements.
+
+  <sub>Internally, arrays override the default ```toString()``` with their own implementation.<sub>
+
+* _```valueOf()``` : returns the primitive value of the object. Automatically called during numeric operations, comparisons, or type coercion._
+
+  _Useful to customize how an object behaves when used in arithmetic or comparison contexts._
+
+  _```const amount = {```_\
+  _``` value : 100,```_\
+  _``` valueOf() {```_\
+  _```  return this.value;```_\
+  _``` }```_
+  _```};```_
+
+  <sub>By default, objects return themselves. Custom implementation is required to convert objects to primitive values.<sub>
+
+* _```hasOwnProperty(prop)``` : checks if the specified property exists directly on the object itself, excluding properties inherited through the prototype chain._
+
+  _```const obj = {a : 1};```_\
+  _```console.log(obj.hasOwnProperty("a"));``` output : true_
+  _```console.log(obj.hasOwnProperty("toString"));``` output : false_
+
+* _```isPrototypeOf(obj)``` : indicates whether the current object exists in the prototype chain of another object._
+
+  _```function Animal() {}```_\
+  _```const dog = new Animal();```_
+
+  _```console.log(Animal.prototype.isPrototypeOf(dog));``` output : true_
+
+* _```propertyIsEnumerable(prop)``` : checks if a property is a direct property of the object and if it is enumerable/iterable (visible in **for...in** loops or **Object.keys**).
+
+  _```const obj = {a : 1};```_\
+  _```console.log(obj.propertyIsEnumerable("a"));``` output : true_\
+  _```console.log(obj.propertyIsEnumerable("toString"));``` output : false_
+  
+
+  
 ## _new Keyword_
 
 _The new keyword is used to create a new object instance from a constructor function or a class. It automates several steps behind the scenes to correctly set up the new object :_
@@ -884,8 +955,30 @@ _```console.log(p.name);```_
 <sub>Without **new**, the constructor function behaves like a regular function, and **this** will refer to the global object (**window** in browsers) or **undefined** in strict mode.<sub>
 
 ## _Prototype Chain and Inheritance_
- 
-_In JavaScript, **inheritance** is primarily achieved through the **prototype chain**. Every object in JS has an internal property called **[[Prototype]]**, which references another object known as its **prototype**, this link between objects forms what is known as the **prototype chain**._
+
+_In JavaScript, **inheritance** is primarily achieved through the **prototype chain**. Every object in JS has an internal link called **[[Prototype]]**, which references another object known as its **prototype**, this link between objects forms what is known as the **prototype chain**._
+
+_In JS, every function (when not an arrow function) has a special property called ```.prototype```. This property is automatically created by the language when the function is defined._
+
+_When a function is used as a **constructor** (with the ```new``` keyword), its ```.prototype``` becomes the **[[Prototype]]** of the objects it creates._
+
+ _```function Animal(name) {```_\
+ _``` this.name = name;```_\
+ _```}```_
+
+<sub>```Animal``` is a **constructor** function.<sub>
+<sub>**Animal.prototype** is an object that will be assigned as the **[[Prototype]]** of any object created using ```new Animal()```.<sub>
+
+_```const dog = new Animal("Rex");```_\
+_```console.log(Object.getPrototypeOf(dog) === Animal.prototype);``` output : true_
+
+<sub>By default, **Animal.prototype** is an empty object that inherits from **Object.prototype**. It's possible to add shared methods or properties to it.<sub>
+
+_```Animal.prototype.speak = function() {```_\
+_``` console.log(this.name + " makes a noise.");```_\
+_```};```_
+
+_```dog.speak();``` output : "Rex makes a noise."_
 
 _When a property or method is accessed on an object, JS first looks for it on the object itself. If it's not found, the engine traverses up the prototype chain, checking each linked prototype until it either finds the property or reaches the end of the chain._
 
