@@ -686,8 +686,46 @@ _Every function in JS inherits from **Function.prototype**, which provides sever
 
   _```greet.call(user, "Hi", "!");``` output : Hi, my name is Bob!_
 
-* _**apply(thisArg, argsArray)** :_
-* _**bind(thisArg, ...args)** :_
+* _**apply(thisArg, argsArray)** : similar to **call()**, but arguments are passed as an array._
+
+  _```function introduce(age, city) {```_\
+  _``` console.log(`I'm ${this.name}, ${age} years old from ${city}.`);```_\
+  _```}```_
+
+  _```const user = {name : "Bob"};```_
+
+  _```introduce.apply(user, [30, "Rome"]);``` output : "I'm Bob, 30 years old from Rome."_
+  
+* _**bind(thisArg, ...args)** : creates a new function with a fixed **this** value and optionally pre-set initial arguments. Unlike **call()** and **apply()**, it does not invoke the function immediately (it just returns a new function that you can call later)._
+
+  _Binding **this** :_
+
+  _```const person = {```_\
+  _``` name : "Alice",```_\
+  _``` greet() {```_\
+  _```  console.log(`Hi, i'm ${this.name}`);```_\
+  _``` }```_\
+  _```};```_
+
+  _```const greetFunc = person.greet;```_\
+  _```greetFunc();``` X : Undefined, because 'this' is lost._
+
+  _```const boundGreet = person.greet.bind(person);```_\
+  _```boundGreet();``` output : "Hi, i'm Alice"_
+
+  _Pre-Filling Arguments :_
+
+  _```function multiply(a, b) {```_\
+  _``` return a * b;```_\
+  _```}```_
+
+  _```const double = multiply.bind(null, 2);``` Pre-fill a = 2_\
+  _```console.log(double(5));``` output : 10_
+
+  <sub>double is a new function where ```a``` is always 2, so calling ```double(5)``` runs ```multiply(2, 5)```.<sub>
+
+  _Once a function is bound, is not possible to re-bind it (the first binding is permanent)._
+  
 * _**toString()** :_
 * _**name** (property) :_
 * _**length** (property) :_
