@@ -650,7 +650,48 @@ _Also called **predefined functions**, are standard functions provided by the Ja
   - _```clearInterval()``` : cancels an interval previously set with **setInterval()** using its **ID**._
  
     _<sub>clearInterval(intervalID)<sub>_
-    
+
+### _Function Prototype Chain_
+
+_In JS, functions are objects, more specifically, they are **first-class objects** (or **first-class citiziens**). This means they can be **stored in variables**, **passed as arguments** to other functions, **returned** from functions, and even assigned properties and methods, just like any other object._\
+_This is possible because functions in JavaScript are actually instances of the buil-in **Function** constructor, and **Function** itself inherits from **Object**._
+
+_This is what allows functions to access special methods like ```.call()``` or ```.bind()``` (defined on **Function.prototype**), as well as generic object methods like ```.toString()``` (defined on **Object.prototype**)._
+
+### _Function.prototype Methods_
+
+_Every function in JS inherits from **Function.prototype**, which provides several built-in methods. These methods allow functions to be manipulated and invoked in flexible ways._
+
+* _**call(thisArg, ...args)** : allows to invoke a function while explicitly setting the **this** context, and to pass arguments one by one._
+
+  _```function sayHello(){```_\
+  _``` console.log(`Hello, my name is ${this.name}`);```_\
+  _```}```_
+
+  _```const person = {```_\
+  _``` name : "Alice"```_\
+  _```};```_
+
+  _```sayHello.call(person);``` output : Hello, my name is Alice_
+
+  _<sub>Here, **this.name** refers to **person.name** cause person has been passed as **thisArg**.<sub>_
+
+  _```function greet(greeting, punctuation) {```_\
+  _``` console.log(`${greeting}, my name is ${this.name}${punctuation}`);```_\
+  _```}```_
+
+  _```const user = {```_\
+  _``` name : "Bob"```_\
+  _```};```_
+
+  _```greet.call(user, "Hi", "!");``` output : Hi, my name is Bob!_
+
+* _**apply(thisArg, argsArray)** :_
+* _**bind(thisArg, ...args)** :_
+* _**toString()** :_
+* _**name** (property) :_
+* _**length** (property) :_
+  
 ## _Hoisting_
 
 _In JavaScript, **hoisting** is a behavior where declarations of variables and functions are conceptually moved to the top of their containing scope during the compilation phase. This means that sometimes it's possible to use variables or call functions before their actual line of declaration appears in the source code. However, the exact behavior depends on the type of declaration involved :_
