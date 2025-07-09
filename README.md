@@ -658,7 +658,7 @@ _This is possible because functions in JavaScript are actually instances of the 
 
 _This is what allows functions to access special methods like ```.call()``` or ```.bind()``` (defined on **Function.prototype**), as well as generic object methods like ```.toString()``` (defined on **Object.prototype**)._
 
-### _Function.prototype Methods_
+#### _Function.prototype Methods_
 
 _Every function in JS inherits from **Function.prototype**, which provides several built-in methods. These methods allow functions to be manipulated and invoked in flexible ways._
 
