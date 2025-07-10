@@ -726,9 +726,9 @@ _Every function in JS inherits from **Function.prototype**, which provides sever
 
   _Once a function is bound, is not possible to re-bind it (the first binding is permanent)._
   
-* _**toString()** :_
-* _**name** (property) :_
-* _**length** (property) :_
+* _**toString()** : this method is available on all JS objects, it is indeed defined on **Object.prototype**, but **functions override it** with their own version provided by **Function.prototype**. When called on a function, **.toString()** returns the source code of the function as a string._
+* _**name** (property) : returns the **name** of the function._
+* _**length** (property) : returns the **number of parameters** the function is declared with._
   
 ## _Hoisting_
 
@@ -968,7 +968,7 @@ _JS offers several ways to create objects :_
   _```person1.greet();``` output : Hello, my name is Bob._\
   _```person2.greet();``` output : Hello, my name is Carol._
 
-  <sub>Using **new** with the constructor function creates a new object where **this** refers to the new instance.<sub>
+  _<sub>Using **new** with the constructor function creates a new object where **this** refers to the new instance.<sub>_
   
 * _**ES6 Classes** : introduced in **ES6** (**ECMAScript 2015**), classes provide a clearer, more concise syntax for creating objects with shared properties and methods._
 
@@ -988,7 +988,7 @@ _JS offers several ways to create objects :_
 
   _A class is a blueprint for creating objects where the constructor method automatically initializes properties, and methods can be defined cleanly without repeating the **function** keyword._
 
- <sub>Using **new** with a class creates a new instance. The constructor sets initial properties, and class methods are shared via the prototype.<sub>
+ _<sub>Using **new** with a class creates a new instance. The constructor sets initial properties, and class methods are shared via the prototype.<sub>_
 
 ### Shared Methods in All Objects
 
@@ -1013,7 +1013,7 @@ _All JavaScript objects inherit from **Object.prototype** by default. This inher
 
   _For arrays, ```toString()``` returns a comma-separated string of elements._
 
-  <sub>Internally, arrays override the default ```toString()``` with their own implementation.<sub>
+  _<sub>Internally, arrays override the default ```toString()``` with their own implementation.<sub>_
 
 * _```valueOf()``` : returns the primitive value of the object. Automatically called during numeric operations, comparisons, or type coercion._
 
@@ -1026,7 +1026,7 @@ _All JavaScript objects inherit from **Object.prototype** by default. This inher
   _``` }```_\
   _```};```_
 
-  <sub>By default, objects return themselves. Custom implementation is required to convert objects to primitive values.<sub>
+  _<sub>By default, objects return themselves. Custom implementation is required to convert objects to primitive values.<sub>_
 
 * _```hasOwnProperty(prop)``` : checks if the specified property exists directly on the object itself, excluding properties inherited through the prototype chain._
 
@@ -1079,7 +1079,7 @@ _Behind the scenes, JS internally creates a temporary **String** object wrapper,
 _```new String("hello").length;```_\
 _```new String("hello").toUpperCase();```_
 
-<sub>The original primitive remains unchanged.<sub>
+_<sub>The original primitive remains unchanged.<sub>_
 
 ## _new Keyword_
 
@@ -1097,7 +1097,7 @@ _```}```_
 _```const p = new Person("Alice");```_\
 _```console.log(p.name);```_
 
-<sub>Without **new**, the constructor function behaves like a regular function, and **this** will refer to the global object (**window** in browsers) or **undefined** in strict mode.<sub>
+_<sub>Without **new**, the constructor function behaves like a regular function, and **this** will refer to the global object (**window** in browsers) or **undefined** in strict mode.<sub>_
 
 ## _Prototype Chain and Inheritance_
 
@@ -1111,14 +1111,14 @@ _When a function is used as a **constructor** (with the ```new``` keyword), its 
  _``` this.name = name;```_\
  _```}```_
 
-<sub>```Animal``` is a **constructor** function.<sub>
+_<sub>```Animal``` is a **constructor** function.<sub>_
 
-<sub>**Animal.prototype** is an object that will be assigned as the **[[Prototype]]** of any object created using ```new Animal()```.<sub>
+_<sub>**Animal.prototype** is an object that will be assigned as the **[[Prototype]]** of any object created using ```new Animal()```.<sub>_
 
 _```const dog = new Animal("Rex");```_\
 _```console.log(Object.getPrototypeOf(dog) === Animal.prototype);``` output : true_
 
-<sub>By default, **Animal.prototype** is an empty object that inherits from **Object.prototype**. It's possible to add shared methods or properties to it.<sub>
+_<sub>By default, **Animal.prototype** is an empty object that inherits from **Object.prototype**. It's possible to add shared methods or properties to it.<sub>_
 
 _```Animal.prototype.speak = function() {```_\
 _``` console.log(this.name + " makes a noise.");```_\
@@ -1131,3 +1131,31 @@ _When a property or method is accessed on an object, JS first looks for it on th
 _The **prototype chain** always ends with ```null```, which means there are no further prototypes to follow. At the top of the chain is usually ```Object.prototype```, whose own prototype is ```null```. Once ```null``` is reached, JS stops searching, and the property is considered **undefined** if not found earlier in the chain._
 
 _This approach differs from classical inheritance models found in languages like Java or C++, where classes are the primary unit of inheritance. In JS, inheritance is **object-based**, meaning that objects inherit directly from other objects through this dynamic prototype mechanism._
+
+## _Advanced Data Structures_
+
+_In addition to basic objects and arrays, JavaScript provides built-in **advanced data structures** that offer more flexibility, performance, and precision in certain scenarios._
+
+### _Map_
+
+_A **Map** is a collection of **ordered** key-value pairs where **keys can be of any type**, including objects, functions, and primitives. It is more versatile than plain objects, especially when key types other than strings are required._
+
+_```const myMap = new Map();```_\
+_```myMap.set("name", "Alice");```_\
+_```myMap.set(42, "Quit");```_
+
+_```const key = {id : 1};```_\
+_```myMap.set(key, "Object key");```_
+
+_<sub>All three, ```name```, ```42``` and ```key``` are **keys**, and they are of different types.<sub>_
+
+_A Map preserves the insertion order of entries, accepts keys of any type (including objects and functions, unlike plain objects that coerce keys to strings), and provides a clean, consistent API with methods like ```.set()``` and ```.get()``` for intuitive and powerful data management._
+
+_Common Map methods are :_
+
+* _```set(key, value)``` : adds or updates an entry._
+* _```get(key)``` : retrieves the value for the given key._
+* _```has(key)``` : checks if a key exists._
+* _```delete(key)``` : removes the entry for the given key._
+* _```clear()``` : removes all entries._
+* _```size``` : returns the number of entries._
