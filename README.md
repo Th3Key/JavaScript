@@ -1159,3 +1159,28 @@ _Common Map methods are :_
 * _```delete(key)``` : removes the entry for the given key._
 * _```clear()``` : removes all entries._
 * _```size``` : returns the number of entries._
+
+_Each entry in a **Map** is structured as a two-element array, consisting of the key and its corresponding value._\
+_One of the most common ways to iterate through a **Map** is by using a **for...of** loop combined with destructuring. This approach allows direct access to both the key and the value in each iteration._
+
+_```const myMap = new Map();```_\
+_```myMap.set("fruit", "apple");```_\
+_```myMap.set("color", "red");```_
+
+_```for (const [key, value] of myMap) {```_\
+_``` console.log(`${key} => ${value}`);```_\
+_```}```_
+
+_**Map** also provides dedicated methods for targeting specific elements. The ```.keys()``` method allows iteration over just the keys, while ```.values()``` returns only the values. The ```.entries()``` method gives access to key-value pairs and is the default iterator for a **Map**._
+
+_```for (const key of myMap.keys()) {```_\
+_``` console.log(key);```_\
+_```}```_
+
+_<sub>Will output all the keys<sub>_
+
+_```for (const value of myMap.values()) {```_\
+_``` console.log(value);```_\
+_```}```_
+
+_<sub>Will output all the values<sub>_
