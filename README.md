@@ -654,7 +654,7 @@ _Also called **predefined functions**, are standard functions provided by the Ja
 ### _Function Prototype Chain_
 
 _In JS, functions are objects, more specifically, they are **first-class objects** (or **first-class citiziens**). This means they can be **stored in variables**, **passed as arguments** to other functions, **returned** from functions, and even assigned properties and methods, just like any other object._\
-_This is possible because functions in JavaScript are actually instances of the buil-in **Function** constructor, and **Function** itself inherits from **Object**._
+_This is possible because functions in JavaScript are actually instances of the built-in **Function** constructor, and **Function** itself inherits from **Object**._
 
 _This is what allows functions to access special methods like ```.call()``` or ```.bind()``` (defined on **Function.prototype**), as well as generic object methods like ```.toString()``` (defined on **Object.prototype**)._
 
@@ -1132,7 +1132,7 @@ _The **prototype chain** always ends with ```null```, which means there are no f
 
 _This approach differs from classical inheritance models found in languages like Java or C++, where classes are the primary unit of inheritance. In JS, inheritance is **object-based**, meaning that objects inherit directly from other objects through this dynamic prototype mechanism._
 
-## _Advanced Data Structures_
+## _Built-in Advanced Data Structures_
 
 _In addition to basic objects and arrays, JavaScript provides built-in **advanced data structures** that offer more flexibility, performance, and precision in certain scenarios._
 
@@ -1151,7 +1151,7 @@ _<sub>All three, ```name```, ```42``` and ```key``` are **keys**, and they are o
 
 _A Map preserves the insertion order of entries, accepts keys of any type (including objects and functions, unlike plain objects that coerce keys to strings), and provides a clean, consistent API with methods like ```.set()``` and ```.get()``` for intuitive and powerful data management._
 
-_Common Map methods are :_
+_Common Map methods/properties are :_
 
 * _```set(key, value)``` : adds or updates an entry._
 * _```get(key)``` : retrieves the value for the given key._
@@ -1184,3 +1184,87 @@ _``` console.log(value);```_\
 _```}```_
 
 _<sub>Will output all the values<sub>_
+
+### _Set_
+
+_A **Set** is a built-in object, it represents a collection of unique values, meaning each element can appear only one in the structure. Duplicate entries are automatically excluded._
+
+_```const set1 = new Set();```_
+
+_```const set2 = new Set([1, 2, 3, 3]);```_\
+_```console.log(set2);``` output : {1, 2, 3}_
+
+_A **Set** mantains insertion order and accepts values of any data type._
+
+_Common Set methods/properties are :_
+
+* _```add(value)``` : adds a value to the set._
+* _```delete(value)``` : removes a value from the set._
+* _```has(value)``` : checks if a value exists in the set._
+* _```clear()``` : removes all values._
+* _```size``` : returns the number of unique values in the set._
+
+_The most common way to iterate over a Set are :_
+
+* _with the **for...of** loop :_
+  
+ _```const colors = new Set(["red", "green", "blue"]);```_
+
+ _```for (const color of colors){```_\
+ _``` console.log(color);```_\
+ _```}```_
+
+ _```colors.forEach(color => console.log(color));```_
+
+* _with forEach() :_
+
+ _```const colors = new Set(["red", "green", "blue"]);```_\
+ _```colors.forEach(color => console.log(color));```_
+
+_It's very easy to convert between Set and Array :_
+
+* _Set to Array :_
+
+   _```const set = new Set([1, 2, 3]);```_\
+   _```const array = [...set];```_
+
+* _Array to Set (removes duplicates) :_
+
+  _```const numbers = [1, 2, 2, 3];```_\
+  _```const uniqueNumbers = [...new Set(numbers)];```_\
+  _```console.log(uniqueNumbers);``` output : {1, 2, 3}_
+
+## _Spread Syntax (...)_
+
+_The **spread syntax** is represented by three dots and is used to expand ("spread") the elements of an iterable object (such as an array, string, or Set) into individual elements._
+
+* Copying Arrays :
+
+  _```const original = [1, 2, 3];```_\
+  _```const copy = [...original];```_\
+  _```console.log(copy);``` output : {1, 2, 3}_
+
+* Merging Arrays :
+
+  _```const arr1 = [1, 2];```_\
+  _```const arr2 = [3, 4];```_\
+  _```const merged = [...arr1, ...arr2];```_\
+  _```console.log(merged);``` output : {1, 2, 3, 4}_
+
+* Passing Array elements as function arguments :
+
+  _```function sum(a, b, c){```_\
+  _``` return a + b + c;```_\
+  _```}```_\
+  _```const numbers = [1, 2, 3];```_\
+  _```console.log(sum(...numbers));```_
+
+* Converting iterable to Array :
+
+  _```const set = new Set([1, 2, 3]);```_\
+  _```const array = [...set];```_\
+  _```console.log(array);``` output : {1, 2, 3}_
+
+_<sub>Using the spread syntax avoids reference sharing and creates a new structure, ensuring values are passed by value (for primitive) rather than by reference (for arrays or objects).<sub>_
+
+_<sub>The spread syntax works only on iterable values and produces a **shallow copy**, meaning that nested structures (like arrays or objects within the array) are copied by reference, not cloned.<sub>_
