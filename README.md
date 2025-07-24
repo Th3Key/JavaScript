@@ -444,7 +444,60 @@ _Is a function defined as part of an expression. Essentially, the function (**an
  _```const p = function positive(n) {```_\
  _``` return n > 0 ? true : false;```_\
  _```};```_
- 
+
+### _Anonymous Functions_
+
+_In **JS**, a function can either be **named** or **anonymous**. While named functions have an identifier by which they can be referenced and reused, anonymous functions do not have a name. They are defined without an identifier and are typically used in places where functions are used only **once** or **in-line**, such as callbacks or function expressions._\
+_An anonymous function cannot be directly referenced elsewhere in the code unless it is **assigned to a variable** or passed as a **parameter** to another function._
+
+_Some of the most typical uses include :_
+
+* ***Function Expressions***
+
+  _```const add = function(a, b) {```_\
+  _``` return a + b;```_\
+  _```};```_
+
+_<sub>The function is created anonymously and assigned to a constant, which acts as its reference<sub>_
+
+* ***Callbacks***
+
+  _```const numbers = [1, 2, 3];```_
+
+  _```const squares = numbers.map(function(num) {```_\
+  _``` return num * num;```_\
+  _```});```_
+
+_<sub>Anonymous functions are ideal as arguments to higher-order functions like ```map()```, ```filter()```, ```forEach()```, or event handlers.<sub>_
+
+* ***Event Listeners***
+
+  _```document.querySelector("#btn").addEventListener("click", function() {```_\
+  _``` alert("Button clicked!");```_\
+  _```});```_
+
+
+_With the introduction of **ES6**, **arrow functions** became a common way to write anonymous functions more concisely._
+
+_```const multiply = (a, b) => a * b;```_
+
+_<sub>Arrow functions are always anonymous unless assigned to a variable or used as part of an object property or class method.<sub>_
+
+_They are especially common in callbacks :_
+
+_```const evens = [2, 4, 6];```_\
+_```evens.forEach(num => console.log(num));```_
+
+### _Callback Functions_
+
+_In **JS**, a **callback function** is a function provided as an argument to another function, which is then executed at a specific point in time. This mechanism enables the definition of custom behavior that is triggered after a particular task has completed or when a certain condition is met._
+
+_The callback pattern is central to asynchronous programming, where operations such as event handling, timers, or data fetching occur independently of the main execution flow._\
+_A callback is not a unique type of function but rather a conventional function used in a specific role. Instead of embedding fixed behavior within a function, a separate function can be passed in to determine what should happen once the primary task finishes. This approach promotes code modularity and reusability, as one function focuses on performing the task while the callback determines the post-task logic._
+
+_Callbacks can operate either synchronously or asynchronously. Synchronous callbacks are executed immediately during the execution of the outer function (commonly seen in array methods like ```map```, ```forEach```, or ```filter```) while asynchronous callbacks are deferred until a future time, such as after a delay using ```setTimeout``` or upon completion of a network request or user interaction._
+
+
 ### _Built-in Functions_
 
 _Also called **predefined functions**, are standard functions provided by the JavaScript environment to perform common tasks. These functions are available by default and do not require manual definition._
@@ -1099,6 +1152,41 @@ _```console.log(p.name);```_
 
 _<sub>Without **new**, the constructor function behaves like a regular function, and **this** will refer to the global object (**window** in browsers) or **undefined** in strict mode.<sub>_
 
+## _Spread Syntax (...)_
+
+_The **spread syntax** is represented by three dots and is used to expand ("spread") the elements of an iterable object (such as an array, string, or Set) into individual elements._
+
+* Copying Arrays :
+
+  _```const original = [1, 2, 3];```_\
+  _```const copy = [...original];```_\
+  _```console.log(copy);``` output : {1, 2, 3}_
+
+* Merging Arrays :
+
+  _```const arr1 = [1, 2];```_\
+  _```const arr2 = [3, 4];```_\
+  _```const merged = [...arr1, ...arr2];```_\
+  _```console.log(merged);``` output : {1, 2, 3, 4}_
+
+* Passing Array elements as function arguments :
+
+  _```function sum(a, b, c){```_\
+  _``` return a + b + c;```_\
+  _```}```_\
+  _```const numbers = [1, 2, 3];```_\
+  _```console.log(sum(...numbers));```_
+
+* Converting iterable to Array :
+
+  _```const set = new Set([1, 2, 3]);```_\
+  _```const array = [...set];```_\
+  _```console.log(array);``` output : {1, 2, 3}_
+
+_<sub>Using the spread syntax avoids reference sharing and creates a new structure, ensuring values are passed by value (for primitive) rather than by reference (for arrays or objects).<sub>_
+
+_<sub>The spread syntax works only on iterable values and produces a **shallow copy**, meaning that nested structures (like arrays or objects within the array) are copied by reference, not cloned.<sub>_
+
 ## _Prototype Chain and Inheritance_
 
 _In JavaScript, **inheritance** is primarily achieved through the **prototype chain**. Every object in JS has an internal link called **[[Prototype]]**, which references another object known as its **prototype**, this link between objects forms what is known as the **prototype chain**._
@@ -1234,37 +1322,14 @@ _It's very easy to convert between Set and Array :_
   _```const uniqueNumbers = [...new Set(numbers)];```_\
   _```console.log(uniqueNumbers);``` output : {1, 2, 3}_
 
-## _Spread Syntax (...)_
+## _Custom Advanced Data Structures_
 
-_The **spread syntax** is represented by three dots and is used to expand ("spread") the elements of an iterable object (such as an array, string, or Set) into individual elements._
+_These structures are built manually to match particular algorithmic or architectural needs :_
 
-* Copying Arrays :
-
-  _```const original = [1, 2, 3];```_\
-  _```const copy = [...original];```_\
-  _```console.log(copy);``` output : {1, 2, 3}_
-
-* Merging Arrays :
-
-  _```const arr1 = [1, 2];```_\
-  _```const arr2 = [3, 4];```_\
-  _```const merged = [...arr1, ...arr2];```_\
-  _```console.log(merged);``` output : {1, 2, 3, 4}_
-
-* Passing Array elements as function arguments :
-
-  _```function sum(a, b, c){```_\
-  _``` return a + b + c;```_\
-  _```}```_\
-  _```const numbers = [1, 2, 3];```_\
-  _```console.log(sum(...numbers));```_
-
-* Converting iterable to Array :
-
-  _```const set = new Set([1, 2, 3]);```_\
-  _```const array = [...set];```_\
-  _```console.log(array);``` output : {1, 2, 3}_
-
-_<sub>Using the spread syntax avoids reference sharing and creates a new structure, ensuring values are passed by value (for primitive) rather than by reference (for arrays or objects).<sub>_
-
-_<sub>The spread syntax works only on iterable values and produces a **shallow copy**, meaning that nested structures (like arrays or objects within the array) are copied by reference, not cloned.<sub>_
+* ***Stack***
+* ***Queue***
+* ***Linked List***
+* ***Tree***
+* ***Graph***
+* ***Heap***
+* ***Trie (Prefix Tree)***
